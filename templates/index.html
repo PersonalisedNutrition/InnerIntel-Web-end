@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Responsive Admin Dashboard Template">
+    <meta name="keywords" content="admin,dashboard">
+    <meta name="author" content="skcats">
+    <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>INNER INTEL - Beta</title>
+
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    {#        <link href="../static/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">#}
+    <link href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/plugins/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/plugins/icomoon/style.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/plugins/uniform/css/default.css' %}" rel="stylesheet"/>
+    <link href="{% static 'assets/plugins/switchery/switchery.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'assets/plugins/datatables/css/jquery.datatables.min.css' %}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{% static 'assets/plugins/datatables/css/jquery.datatables_themeroller.css' %}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{% static 'assets/plugins/bootstrap-datepicker/css/datepicker3.css' %}" rel="stylesheet"
+          type="text/css"/>
+
+    {#    <link href="../static/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">#}
+    {#    <link href="../static/assets/plugins/icomoon/style.css" rel="stylesheet">#}
+    {#    <link href="../static/assets/plugins/uniform/css/default.css" rel="stylesheet"/>#}
+    {#    <link href="../static/assets/plugins/switchery/switchery.min.css" rel="stylesheet"/>#}
+    {#    <link href="../static/assets/plugins/datatables/css/jquery.datatables.min.css" rel="stylesheet" type="text/css"/>#}
+    {#    <link href="../static/assets/plugins/datatables/css/jquery.datatables_themeroller.css" rel="stylesheet"#}
+    {#          type="text/css"/>#}
+    {#    <link href="../static/assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" type="text/css"/>#}
+
+    <!-- Theme Styles -->
+    <link href="{% static 'assets/css/ecaps.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/custom.css' %}" rel="stylesheet">
+
+    {#    <link href="../static/assets/css/ecaps.min.css" rel="stylesheet">#}
+    {#    <link href="../static/assets/css/custom.css" rel="stylesheet">#}
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+
+
+    <![endif]-->
+</head>
+<body>
+
+<!-- Page Container -->
+<div class="page-container">
+    <!-- Page Sidebar -->
+    <div class="page-sidebar">
+        <a class="logo-box" href="index.html">
+            <span>Inner Intel</span>
+            <i class="icon-radio_button_unchecked" id="fixed-sidebar-toggle-button"></i>
+            <i class="icon-close" id="sidebar-toggle-button-close"></i>
+        </a>
+        <br><br>
+        <div class="page-sidebar-inner">
+            <div class="page-sidebar-menu">
+                <ul class="accordion-menu">
+                    <li class="active-page">
+                        <a href="index.html">
+                            <i class="menu-icon icon-home4"></i><span>My Patients</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="menu-icon icon-format_list_bulleted"></i><span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="message.html">
+                            <i class="menu-icon icon-inbox"></i><span>Messages</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="setting.html">
+                            <i class="menu-icon icon-star"></i><span>Setting</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div><!-- /Page Sidebar -->
+
+    <!-- Page Content -->
+    <div class="page-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="search-form">
+                <form action="#" method="GET">
+                    <div class="input-group">
+                        <input type="text" name="search" class="form-control search-input"
+                               placeholder="Type something...">
+                        <span class="input-group-btn">
+                                    <button class="btn btn-default" id="close-search" type="button"><i
+                                            class="icon-close"></i></button>
+                                </span>
+                    </div>
+                </form>
+            </div>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <div class="logo-sm">
+                            <a href="javascript:void(0)" id="sidebar-toggle-button"><i class="fa fa-bars"></i></a>
+                            <a class="logo-box" href="index.html"><span>Inner Intel</span></a>
+                        </div>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <i class="fa fa-angle-down"></i>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="javascript:void(0)" id="collapsed-sidebar-toggle-button"><i
+                                    class="fa fa-bars"></i></a></li>
+                            <li><a href="javascript:void(0)" id="toggle-fullscreen"><i class="fa fa-expand"></i></a>
+                            </li>
+                            <li><a href="javascript:void(0)" id="search-button"><i class="fa fa-search"></i></a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown user-dropdown">
+                                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"
+                                   role="button" aria-haspopup="true" aria-expanded="false"><i
+                                        class="fa fa-user-circle"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="dashboard.html">Profile</a></li>
+                                    <li><a href="message.html"><span class="badge pull-right badge-danger">42</span>Messages</a>
+                                    </li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="setting.html">Account Settings</a></li>
+                                    <li><a href="login.html">Log Out</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div><!-- /Page Header -->
+        <!-- Page Inner -->
+        <div class="page-inner">
+            <div class="page-title">
+                <h3 class="breadcrumb-header">My Patients</h3>
+            </div>
+            <div id="main-wrapper">
+                <!-- Colum One -->
+                <div class="col-lg-12">
+                    <div class="panel panel-white">
+                        <div class="panel-heading clearfix">
+                            <h4 class="panel-title">Patient List</h4>
+                            <a href="patient.html">
+                                <button>Details</button>
+                            </a>
+                            <br><br>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table id="example" class="display table" style="width: 100%; cellspacing: 0;">
+                                    <thead>
+                                    <tr>
+                                        <th><a href="patient.html">Name</a></th>
+                                        <th>Nutritians</th>
+                                        <th>Priority</th>
+                                        <th>Age</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                    </tr>
+                                    </thead>
+                                    <tfoot>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Nutritians</th>
+                                        <th>Priority</th>
+                                        <th>Age</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                    </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    <tr>
+                                        <td>Tiger Nixon</td>
+                                        <td>Nutritian A, B, and C</td>
+                                        <td><span class="label label-danger">High</span></td>
+                                        <td>61</td>
+                                        <td>2011/04/25</td>
+                                        <td>2023/04/25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Garrett Winters</td>
+                                        <td>Nutritian A, B, and C</td>
+                                        <td><span class="label label-danger">High</span></td>
+                                        <td>63</td>
+                                        <td>2011/07/25</td>
+                                        <td>2023/04/25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ashton Cox</td>
+                                        <td>Nutritian A, B, and C</td>
+                                        <td><span class="label label-danger">High</span></td>
+                                        <td>66</td>
+                                        <td>2009/01/12</td>
+                                        <td>2023/04/25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cedric Kelly</td>
+                                        <td>Nutritian A, B, and C</td>
+                                        <td><span class="label label-danger">High</span></td>
+                                        <td>22</td>
+                                        <td>2012/03/29</td>
+                                        <td>2023/04/25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Firebase Test Data {{ cid }}</td>
+                                        <td>Firebase Test Data {{ time }}</td>
+                                        <td><span class="label label-warning">Firebase Test Data {{ type }}</span></td>
+                                        <td>33</td>
+                                        <td>2008/11/28</td>
+                                        <td>2023/04/25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Brielle Williamson</td>
+                                        <td>Nutritian A, B, and C</td>
+                                        <td><span class="label label-warning">Medium</span></td>
+                                        <td>61</td>
+                                        <td>2012/12/02</td>
+                                        <td>2023/04/25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Herrod Chandler</td>
+                                        <td>Nutritian A, B, and C</td>
+                                        <td><span class="label label-warning">Medium</span></td>
+                                        <td>59</td>
+                                        <td>2012/08/06</td>
+                                        <td>2023/04/25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rhona Davidson</td>
+                                        <td>Nutritian A, B, and C</td>
+                                        <td><span class="label label-warning">Medium</span></td>
+                                        <td>55</td>
+                                        <td>2010/10/14</td>
+                                        <td>2023/04/25</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Colleen Hurst</td>
+                                        <td>Nutritian A, B, and C</td>
+                                        <td><span class="label label-warning">Medium</span></td>
+                                        <td>39</td>
+                                        <td>2009/09/15</td>
+                                        <td>2022/12/18</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sonya Frost</td>
+                                        <td>Nutritian A, B, and Cr</td>
+                                        <td><span class="label label-success">Low</span></td>
+                                        <td>23</td>
+                                        <td>2008/12/13</td>
+                                        <td>2022/12/10</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jena Gaines</td>
+                                        <td>Nutritian A, and C</td>
+                                        <td><span class="label label-success">Low</span></td>
+                                        <td>30</td>
+                                        <td>2008/12/19</td>
+                                        <td>2022/12/18</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quinn Flynn</td>
+                                        <td>Nutritian A, and C</td>
+                                        <td><span class="label label-success">Low</span></td>
+                                        <td>22</td>
+                                        <td>2013/03/03</td>
+                                        <td>2022/12/18</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Charde Marshall</td>
+                                        <td>Nutritian A, and C</td>
+                                        <td><span class="label label-success">Low</span></td>
+                                        <td>36</td>
+                                        <td>2008/10/16</td>
+                                        <td>2022/12/18</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Haley Kennedy</td>
+                                        <td>Nutritian A, and C</td>
+                                        <td><span class="label label-success">Low</span></td>
+                                        <td>43</td>
+                                        <td>2012/12/18</td>
+                                        <td>2022/12/18</td>
+                                    </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                    </div><!-- Main Wrapper -->
+                </div><!-- /Page Inner -->
+
+
+            </div><!-- /Page Content -->
+        </div><!-- /Page Container -->
+
+
+        <!-- Javascripts -->
+
+        <!-- Javascripts -->
+        {#        <script src="../static/assets/plugins/jquery/jquery-3.1.0.min.js"></script>#}
+        {#        <script src="../static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>#}
+        {#        <script src="../static/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>#}
+        {#        <script src="../static/assets/plugins/uniform/js/jquery.uniform.standalone.js"></script>#}
+        {#        <script src="../static/assets/plugins/switchery/switchery.min.js"></script>#}
+        {#        <script src="../static/assets/plugins/datatables/js/jquery.datatables.min.js"></script>#}
+        {#        <script src="../static/assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>#}
+        {#        <script src="../static/assets/js/ecaps.min.js"></script>#}
+        {#        <script src="../static/assets/js/pages/table-data.js"></script>#}
+
+        <script src="{% static 'assets/plugins/jquery/jquery-3.1.0.min.js' %}"></script>
+        <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js' %}"></script>
+        <script src="{% static 'assets/plugins/uniform/js/jquery.uniform.standalone.js' %}"></script>
+        <script src="{% static 'assets/plugins/switchery/switchery.min.js' %}"></script>
+        <script src="{% static 'assets/plugins/datatables/js/jquery.datatables.min.js' %}"></script>
+        <script src="{% static 'assets/js/ecaps.min.js' %}"></script>
+        <script src="{% static 'assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
+        <script src="{% static 'assets/js/pages/table-data.js' %}"></script>
+</body>
+</html>
