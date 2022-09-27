@@ -34,4 +34,23 @@ def index(request):
         # 'gender': gender,
         # 'ip_address': ip_address
     }
-    return render(request, 'index.html', logs_dataset.val()[0])
+    return render(request, 'index.html')
+
+
+# inner page jumping
+def client(request):
+    return render(request, 'client.html')
+def client_data(request):
+    return render(request, 'client_data.html')
+def client_appointment(request):
+    return render(request, 'client_appointment.html')
+def client_note(request):
+    return render(request, 'client_note.html')
+def client_profile(request):
+    return render(request, 'client_profile.html')
+def message(request):
+    return render(request, 'message.html')
+def setting(request):
+    return render(request, 'setting.html')
+def login(request):
+    return render(request, 'login.html')
