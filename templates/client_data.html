@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Responsive Admin Dashboard Template">
+        <meta name="keywords" content="admin,dashboard">
+        <meta name="author" content="skcats">
+        <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        
+        <!-- Title -->
+        <title>INNER INTEL - Beta</title>
+
+        <!-- Styles -->
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <link href='{% static "assets/plugins/bootstrap/css/bootstrap.min.css"%}' rel="stylesheet">
+        <link href='{% static "assets/plugins/font-awesome/css/font-awesome.min.css"%}' rel="stylesheet">
+        <link href='{% static "assets/plugins/icomoon/style.css"%}' rel="stylesheet">
+        <link href='{% static "assets/plugins/uniform/css/default.css"%}' rel="stylesheet"/>
+        <link href='{% static "assets/plugins/switchery/switchery.min.css"%}' rel="stylesheet"/>
+        <link href='{% static "assets/plugins/datatables/css/jquery.datatables.min.css"%}' rel="stylesheet" type="text/css"/>
+        <link href='{% static "assets/plugins/datatables/css/jquery.datatables_themeroller.css"%}' rel="stylesheet" type="text/css"/>
+        <link href='{% static "assets/plugins/bootstrap-datepicker/css/datepicker3.css"%}' rel="stylesheet" type="text/css"/>
+        <link href='{% static "assets/css/detail.css" %}' rel="stylesheet" type="text/css"/>
+      
+        <!-- Theme Styles -->
+        <link href='{% static "assets/css/ecaps.min.css"%}' rel="stylesheet">
+        <link href='{% static "assets/css/custom.css"%}' rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        
+        
+        <![endif]-->
+    </head>
+    <body>
+        
+        <!-- Page Container -->
+        <div class="page-container">
+            <!-- Page Sidebar -->
+            <div class="page-sidebar">
+                <a class="logo-box" href="index.html">
+                    <span>Inner Intel</span>
+                    <i class="icon-radio_button_unchecked" id="fixed-sidebar-toggle-button"></i>
+                    <i class="icon-close" id="sidebar-toggle-button-close"></i>
+                </a>
+                <br><br>
+                <div class="panel-body user-profile-panel">
+                    <img src='{% static "assets/images/profile.png"%}' class="user-profile-image img-circle" alt="">
+                    <h4 class="text-center m-t-lg">Mercy Chen</h4>
+                    <hr>
+                </div>
+                <div class="page-sidebar-inner">
+                    <div class="page-sidebar-menu">
+                        <ul class="accordion-menu">
+                            <li class="active-page">
+                                <a href="index.html">
+                                    <i class="menu-icon icon-home4"></i><span>Home Page</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="setting.html">
+                                    <i class="menu-icon icon-star"></i><span>Setting</span>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- /Page Sidebar -->
+            
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="search-form">
+                        <form action="#" method="GET">
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control search-input" placeholder="Type something...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" id="close-search" type="button"><i class="icon-close"></i></button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <div class="logo-sm">
+                                    <a href="javascript:void(0)" id="sidebar-toggle-button"><i class="fa fa-bars"></i></a>
+                                    <a class="logo-box" href="index.html"><span>Inner Intel</span></a>
+                                </div>
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <i class="fa fa-angle-down"></i>
+                                </button>
+                            </div>
+                        
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                        
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="javascript:void(0)" id="collapsed-sidebar-toggle-button"><i class="fa fa-bars"></i></a></li>
+                                    <li><a href="javascript:void(0)" id="toggle-fullscreen"><i class="fa fa-expand"></i></a></li>
+                                    <li><a href="javascript:void(0)" id="search-button"><i class="fa fa-search"></i></a></li>
+                                </ul>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown user-dropdown">
+                                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle"></i></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="dashboard.html">Profile</a></li>
+                                            <li><a href="message.html"><span class="badge pull-right badge-danger">42</span>Messages</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="setting.html">Account Settings</a></li>
+                                            <li><a href="login.html">Log Out</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+                        </div><!-- /.container-fluid -->
+                    </nav>
+                </div><!-- /Page Header -->
+                <!-- Page Inner -->
+                <div class="page-inner">
+                    <div class="page-title">
+                        <h3 class="breadcrumb-header">Client : Ric Curnow </h3>
+                    </div>
+                    <div id="main-wrapper">
+                        <!-- Colum One -->
+
+                        <!-- Colum Two -->
+                        <div class="col-lg-12">
+                            <div class="panel panel-white" style="height: 80vh;">
+                                <div class="panel-body">
+                                    <div role="tabpanel">
+                                        <!-- Nav tabs -->
+                                        <ul class="nav nav-tabs" role="tablist">
+<!--                                            <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab">Info</a></li>-->
+                                            <li role="presentation" class="active"><a href="#tab2" role="tab" data-toggle="tab">Meal</a></li>
+                                            <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab">Drink</a></li>
+                                            <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab">Flatulence</a></li>
+                                            <li role="presentation"><a href="#tab5" role="tab" data-toggle="tab">Faeces</a></li>
+                                            <li role="presentation"><a href="#tab6" role="tab" data-toggle="tab">Discomfort</a></li>
+                                            <li role="presentation"><a href="#tab7" role="tab" data-toggle="tab">Sleep</a></li>
+                                            <li role="presentation"><a href="#tab8" role="tab" data-toggle="tab">Mental State</a></li>
+                                            <li role="presentation"><a href="#tab9" role="tab" data-toggle="tab">Reflux</a></li>
+                                            <li role="presentation"><a href="#tab10" role="tab" data-toggle="tab">Vomiting</a></li>
+                                            <li role="presentation"><a href="#tab11" role="tab" data-toggle="tab">Exercise</a></li>
+                                            <li role="presentation"><a href="#tab12" role="tab" data-toggle="tab">Weight</a></li>
+                                            <li role="presentation"><a href="#tab13" role="tab" data-toggle="tab">Setting</a></li>
+<!--                                            <li role="presentation"><a href="#tab14" role="tab" data-toggle="tab">Summary</a></li>-->
+                                        </ul>
+                                        <!-- Tab panes -->
+                                        <div class="tab-content">
+                                            <!-- Tab Info -->
+
+                                            <!-- Tab Meal -->
+                                            <div role="tabpanel" class="tab-pane active fade in" id="tab2">
+                                                <div class="panel panel-white">
+                                                    <div class="panel-heading clearfix">
+                                                        <h4 class="panel-title">Meal</h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Flag</th>
+                                                                        <th>Date</th>
+                                                                        <th>Time</th>
+                                                                        <th>Food Inputs(from client)</th>
+                                                                        <th>Cooking method</th>
+                                                                        <th>Food Input(breakout)</th>
+                                                                        <th>Tags(breakout)</th>
+                                                                        <th>Portion size</th>
+                                                                        <th>Portion measurement unit</th>
+                                                                        <th>Cooking fats added(numerator)</th>
+                                                                        <th>Cooking fats added(denominator)</th>
+                                                                        <th>Location</th>
+                                                                        <th>Photograph</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>(star)</td>
+                                                                        <td>01/01/2022</td>
+                                                                        <td>8:00</td>
+                                                                        <td>mexican</td>
+                                                                        <td> </td>
+                                                                        <td class="detail unclick" data-type = "1">beef mince,black beans,capsicum,…</td>
+                                                                        <td>Protein,fat,…</td>
+                                                                        <td>100</td>
+                                                                        <td>grams</td>
+                                                                        <td> </td>
+                                                                        <td> </td>
+                                                                        <td> </td>
+                                                                        <td><i class="fa fa-file-image-o"></i></td>
+                                                                    </tr>
+
+                                                                    <tr class="detail1 hide">
+                                                                        <td colspan="2" style="text-align: center;">more details</td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>01/01/2022</td>
+                                                                        <td>9:00</td>
+                                                                        <td>mexican</td>
+                                                                        <td> </td>
+                                                                        <td class="detail unclick" data-type = "1">beef mince,black beans,capsicum,…</td>
+                                                                        <td>Protein,fat,…</td>
+                                                                        <td> </td>
+                                                                        <td> </td>
+                                                                        <td> </td>
+                                                                        <td> </td>
+                                                                        <td> </td>
+                                                                        <td><i class="fa fa-file-image-o"></i></td>
+                                                                    </tr>
+                                                                    <tr><td></td>
+                                                                        <td>01/01/2022</td>
+                                                                        <td>18:00</td>
+                                                                        <td>mexican</td>
+                                                                        <th> </th>
+                                                                        <td class="detail unclick" data-type = "1">beef mince,black beans,capsicum,…</td>
+                                                                        <td>Protein,fat,…</td>
+                                                                        <td> </td>
+                                                                        <td> </td>
+                                                                        <td> </td>
+                                                                        <td> </td>
+                                                                        <td> </td>
+                                                                        <td><i class="fa fa-file-image-o"></i></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>01/01/2022</td>
+                                                                        <td>20:00</td>
+                                                                        <td>mexican</td>
+                                                                        <td> </td>
+                                                                        <td class="detail unclick" data-type = "1">beef mince,black beans,capsicum,…</td>
+                                                                        <td>Protein,fat,…</td>
+                                                                        <td> </td>
+                                                                        <td> </td>
+                                                                        <td> </td>
+                                                                        <td> </td>
+                                                                        <td> </td>
+                                                                        <td><i class="fa fa-file-image-o"></i></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Tab Drink -->
+                                            <div role="tabpanel" class="tab-pane fade" id="tab3">
+                                                <div class="panel panel-white">
+                                                    <div class="panel-heading clearfix">
+                                                        <h4 class="panel-title">Drink</h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Flag</th>
+                                                                        <th>Date</th>
+                                                                        <th>Time</th>
+                                                                        <th>Drink inputs (from client)</th>
+                                                                        <th>Drink inputs (breakout)</th>
+                                                                        <th>tags (breakout)</th>
+                                                                        <th>Drink size (numerator)</th>
+                                                                        <th>Drink size (denominator)</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+
+
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Tab Flatulence -->
+                                            <div role="tabpanel" class="tab-pane fade" id="tab4">
+                                                <div class="panel panel-white">
+                                                    <div class="panel-heading clearfix">
+                                                        <h4 class="panel-title">Flatulence</h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Flag</th>
+                                                                        <th>Date</th>
+                                                                        <th>Time</th>
+                                                                        <th>Degree</th>
+                                                                        <th>Comment(per day)</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>01/01/2022</td>
+                                                                        <td>8:00</td>
+                                                                        <td>normal</td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>01/01/2022</td>
+                                                                        <td>18:00</td>
+                                                                        <td>high</td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>02/01/2022</td>
+                                                                        <td>8:00</td>
+                                                                        <td>normal</td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>02/01/2022</td>
+                                                                        <td>18:00</td>
+                                                                        <td>high</td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Tab Faeces -->
+                                            <div role="tabpanel" class="tab-pane fade" id="tab5">
+                                                <div class="panel panel-white">
+                                                    <div class="panel-heading clearfix">
+                                                        <h4 class="panel-title">Faeces</h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Flag</th>
+                                                                        <th>Date</th>
+                                                                        <th>Time</th>
+                                                                        <th>State</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>01/01/2022</td>
+                                                                        <td>8:00</td>
+                                                                        <td>type 5</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>01/01/2022</td>
+                                                                        <td>18:00</td>
+                                                                        <td>type 5</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>02/01/2022</td>
+                                                                        <td>8:00</td>
+                                                                        <td>type 7</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>02/01/2022</td>
+                                                                        <td>18:00</td>
+                                                                        <td>type 7</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Tab Discomfort -->
+                                            <div role="tabpanel" class="tab-pane fade" id="tab6">
+                                                <div class="panel panel-white">
+                                                    <div class="panel-heading clearfix">
+                                                        <h4 class="panel-title">Discomfort</h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Flag</th>
+                                                                        <th>Date</th>
+                                                                        <th>Time</th>
+                                                                        <th>Discomfort (incidental)</th>
+                                                                        <th>Discomfort (daily)</th>
+                                                                        <th>Discomfort descriptor</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>01/01/2022</td>
+                                                                        <td>8:00</td>
+                                                                        <td>4</td>
+                                                                        <td>stomachache</td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>01/05/2022</td>
+                                                                        <td>8:00</td>
+                                                                        <td>7</td>
+                                                                        <td>stomachache</td>
+                                                                        <td></td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Tab Sleep -->
+                                            <div role="tabpanel" class="tab-pane fade" id="tab7">
+                                                <div class="panel panel-white">
+                                                    <div class="panel-heading clearfix">
+                                                        <h4 class="panel-title">Sleep</h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Flag</th>
+                                                                        <th>Date</th>
+                                                                        <th>Start Time</th>
+                                                                        <th>Quantity</th>
+                                                                        <th>Quality</th>
+                                                                        <th>Sleep note</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>01/01/2022</td>
+                                                                        <td>22:00</td>
+                                                                        <td>8h</td>
+                                                                        <td>good</td>
+                                                                        <td>wake up twice</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>01/01/2022</td>
+                                                                        <td>23:00</td>
+                                                                        <td>7h</td>
+                                                                        <td>awful</td>
+                                                                        <td>bad dreams</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>02/01/2022</td>
+                                                                        <td>22:00</td>
+                                                                        <td>8h</td>
+                                                                        <td>normal</td>
+                                                                        <td></td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Tab Mental State -->
+                                            <div role="tabpanel" class="tab-pane fade" id="tab8">
+                                                <div class="panel panel-white">
+                                                    <div class="panel-heading clearfix">
+                                                        <h4 class="panel-title">Mental State</h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Date</th>
+                                                                        <th>Time</th>
+                                                                        <th>Quality</th>
+                                                                        <th>Description</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>01/01/2022</td>
+                                                                        <td>8:00</td>
+                                                                        <td>good</td>
+                                                                        <td>feel good</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>01/01/2022</td>
+                                                                        <td>18:00</td>
+                                                                        <td>bad</td>
+                                                                        <td>feel bad</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>02/01/2022</td>
+                                                                        <td>8:00</td>
+                                                                        <td>good</td>
+                                                                        <td>feel good</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>02/01/2022</td>
+                                                                        <td>18:00</td>
+                                                                        <td>bad</td>
+                                                                        <td>feel bad</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Tab Reflux -->
+                                            <div role="tabpanel" class="tab-pane fade" id="tab9">
+                                                <div class="panel panel-white">
+                                                    <div class="panel-heading clearfix">
+                                                        <h4 class="panel-title">Reflux</h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Flag</th>
+                                                                        <th>Date</th>
+                                                                        <th>Time</th>
+                                                                        <th>Reflux (incidental)</th>
+                                                                        <th>Reflux (daily)</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>01/01/2022</td>
+                                                                        <td>19:00</td>
+                                                                        <td>1</td>
+                                                                        <td>reflux and heartburn</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>02/01/2022</td>
+                                                                        <td>20:00</td>
+                                                                        <td>1</td>
+                                                                        <td>a little heartburn</td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Tab Vomiting -->
+                                            <div role="tabpanel" class="tab-pane fade" id="tab10">
+                                                <div class="panel panel-white">
+                                                    <div class="panel-heading clearfix">
+                                                        <h4 class="panel-title">Vomiting</h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Flag</th>
+                                                                        <th>Date</th>
+                                                                        <th>Vomiting (incidental)</th>
+                                                                        <th>Vomiting (daily)</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>01/01/2022</td>
+                                                                        <td>12:00,13:00,14:00</td>
+                                                                        <td>3</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>02/01/2022</td>
+                                                                        <td>23:00</td>
+                                                                        <td>1</td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Tab Exercise -->
+                                            <div role="tabpanel" class="tab-pane fade" id="tab11">
+                                                <div class="panel panel-white">
+                                                    <div class="panel-heading clearfix">
+                                                        <h4 class="panel-title">Exercise</h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Flag</th>
+                                                                        <th>Date</th>
+                                                                        <th>Exercise (duration)</th>
+                                                                        <th>Exercise (type)</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>01/01/2022</td>
+                                                                        <td>3h</td>
+                                                                        <td>swim</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>01/01/2022</td>
+                                                                        <td>2h</td>
+                                                                        <td>boxing</td>
+
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Tab Weight -->
+                                            <div role="tabpanel" class="tab-pane fade" id="tab12">
+                                                <div class="panel panel-white">
+                                                    <div class="panel-heading clearfix">
+                                                        <h4 class="panel-title">Weight</h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Flag</th>
+                                                                        <th>Date</th>
+                                                                        <th>Time</th>
+                                                                        <th>Weight(kg)</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>01/01/2022</td>
+                                                                        <td>22:00</td>
+                                                                        <td>55</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>08/01/2022</td>
+                                                                        <td>23:00</td>
+                                                                        <td>53</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td>015/01/2022</td>
+                                                                        <td>22:00</td>
+                                                                        <td>54</td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Tab Setting -->
+                                            <div role="tabpanel" class="tab-pane fade" id="tab13">
+                                                <div class="panel panel-white">
+                                                    <div class="panel-heading clearfix">
+                                                        <h4 class="panel-title">Setting</h4>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <h4>Reminder Logging Frequency</h4>
+                                                        <form>
+                                                            <p>Reminder 1</p>
+                                                            <br>
+                                                            <div class="form-group">
+                                                                <div class="col-lg-6">
+                                                                    <label>Type</label>
+                                                                    <select style="margin-bottom:15px;" class="form-control">
+                                                                        <option>Unselected</option>
+                                                                        <option>Meal</option>
+                                                                        <option>Discomfort</option>
+                                                                        <option>Sleep</option>
+                                                                        <option>Mental State</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <label>Time</label>
+                                                                    <input type="time"class="form-control">
+                                                                    <br>
+                                                                </div>
+                                                            </div>
+
+                                                            <p>Reminder 2</p>
+                                                            
+                                                            <div class="form-group">
+                                                                <div class="col-lg-6">
+                                                                    
+                                                                    <label>Type</label>
+                                                                    <select style="margin-bottom:15px;" class="form-control">
+                                                                        <option>Unselected</option>
+                                                                        <option>Meal</option>
+                                                                        <option>Discomfort</option>
+                                                                        <option>Sleep</option>
+                                                                        <option>Mental State</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <label>Time</label>
+                                                                    <input type="time"class="form-control">
+                                                                    <br>
+                                                                </div>
+                                                            </div>
+
+                                                            <p>Reminder 3</p>
+
+                                                            <div class="form-group">
+                                                                <div class="col-lg-6">
+                                                                    <label>Type</label>
+                                                                    <select style="margin-bottom:15px;" class="form-control">
+                                                                        <option>Unselected</option>
+                                                                        <option>Meal</option>
+                                                                        <option>Discomfort</option>
+                                                                        <option>Sleep</option>
+                                                                        <option>Mental State</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <label>Time</label>
+                                                                    <input type="time"class="form-control">
+                                                                    <br>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <hr>
+
+                                                            <button type="submit" class="btn btn-primary">Save</button>
+                                                        </form>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Tab Summary -->
+                                            <div role="tabpanel" class="tab-pane fade" id="tab14">
+                                                <div class="panel-body" style="height: 65vh; overflow:scroll">
+                                                    <h4>Generate Report</h4>   
+                                                    <div style="float: right; margin-bottom: 10px">
+                                                        <label style="display: inline-block; margin-right: 50px"><div class="checker" id="uniform-autoopen"><span><input type="checkbox" id="autoopen" style="vertical-align: baseline"></span></div>&nbsp;auto-open next field</label>
+                                                        <button id="enable" class="btn btn-default">enable / disable</button>
+                                                    </div>
+                                                    <p>Click to edit</p>
+                                                    <table id="user" class="table table-bordered table-striped" style="clear: both">
+                                                        <tbody> 
+                                                            <tr>   
+                                                                <td style="width: 35%;">Simple text field</td>
+                                                                <td style="width: 65%;"><a href="#" id="username" data-type="text" data-pk="1" data-title="Enter username" class="editable editable-click" style="display: inline;">superuser</a></td>
+                                                            </tr>
+                                                            <tr>     
+                                                                <td>Empty text field, required</td>
+                                                                <td><a href="#" id="firstname" data-type="text" data-pk="1" data-placement="right" data-placeholder="Required" data-title="Enter your firstname" class="editable editable-click" data-original-title="" title="">Empty</a></td>
+                                                            </tr>  
+                                                            <tr>   
+                                                                <td>Select, local array, custom display</td>
+                                                                <td><a href="#" id="sex" data-type="select" data-pk="1" data-value="" data-title="Select sex" class="editable editable-click" style="color: gray;" data-original-title="" title="">not selected</a></td>
+                                                            </tr>
+                                                            <tr>       
+                                                                <td>Select, remote array, no buttons</td>
+                                                                <td><a href="#" id="group" data-type="select" data-pk="1" data-value="5" data-source="/groups" data-title="Select group" class="editable editable-click">Admin</a></td>
+                                                            </tr> 
+                                                            <tr>    
+                                                                <td>Select, error while loading</td>
+                                                                <td><a href="#" id="status" data-type="select" data-pk="1" data-value="0" data-source="/status" data-title="Select status" class="editable editable-click">Active</a></td>
+                                                            </tr>  
+                                            
+                                                            <tr>        
+                                                                <td>Datepicker</td>
+                                                                <td>
+                                                                    <span class="notready">not implemented for Bootstrap 3 yet</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>  
+                                                                <td>Combodate (date)</td>
+                                                                <td><a href="#" id="dob" data-type="combodate" data-value="1984-05-15" data-format="YYYY-MM-DD" data-viewformat="DD/MM/YYYY" data-template="D / MMM / YYYY" data-pk="1" data-title="Select Date of birth" class="editable editable-click">15/05/1984</a></td>
+                                                            </tr> 
+                                                            <tr>   
+                                                                <td>Combodate (datetime)</td>
+                                                                <td><a href="#" id="event" data-type="combodate" data-template="D MMM YYYY  HH:mm" data-format="YYYY-MM-DD HH:mm" data-viewformat="MMM D, YYYY, HH:mm" data-pk="1" data-title="Setup event date and time" class="editable editable-click">Empty</a></td>
+                                                            </tr> 
+                                                            <tr>         
+                                                                <td>Textarea, buttons below. Submit by <i>ctrl+enter</i></td>
+                                                                <td><a href="#" id="comments" data-type="textarea" data-pk="1" data-placeholder="Your comments here..." data-title="Enter comments" class="editable editable-pre-wrapped editable-click">awesome user!</a></td>
+                                                            </tr> 
+                                                            <tr>        
+                                                                <td>Twitter typeahead.js</td>
+                                                                <td><a href="#" id="state2" data-type="typeaheadjs" data-pk="1" data-placement="right" data-title="Start typing State.." class="editable editable-click">California</a></td>
+                                                            </tr>        
+                                                            <tr>     
+                                                                <td>Checklist</td>
+                                                                <td><a href="#" id="fruits" data-type="checklist" data-value="2,3" data-title="Select fruits" class="editable editable-click">peach<br>apple</a></td>
+                                                            </tr> 
+                                                            <tr>   
+                                                                <td>Custom input, several fields</td>
+                                                                <td><a href="#" id="address" data-type="address" data-pk="1" data-title="Please, fill address" class="editable editable-click"><b>Moscow</b>, Lenina st., bld. 12</a></td>
+                                                            </tr>    
+                                                        </tbody>
+                                                    </table>
+                                                    <!-- <div style="float: left; width: 50%">
+                                                        <h3>Console <small>(all ajax requests here are emulated)</small></h3> 
+                                                        <div><textarea id="console" class="form-control" rows="8" style="width: 70%"></textarea></div>
+                                                    </div> -->
+                                                    <button type="submit" class="btn btn-primary">Generate Report</button>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- Main Wrapper -->
+                </div><!-- /Page Inner -->
+            </div><!-- /Page Content -->
+        </div><!-- /Page Container -->
+        
+        
+        <!-- Javascripts -->
+
+        <!-- Javascripts -->
+        <script src='{% static "assets/plugins/jquery/jquery-3.1.0.min.js"%}'></script>
+        <script src='{% static "assets/plugins/bootstrap/js/bootstrap.min.js"%}'></script>
+        <script src='{% static "assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"%}'></script>
+        <script src='{% static "assets/plugins/uniform/js/jquery.uniform.standalone.js"%}'></script>
+        <script src='{% static "assets/plugins/switchery/switchery.min.js"%}'></script>
+        <script src='{% static "assets/plugins/datatables/js/jquery.datatables.min.js"%}'></script>
+        <script src='{% static "assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"%}'></script>
+        <script src='{% static "assets/js/ecaps.min.js"%}'></script>
+        <script src='{% static "assets/js/pages/table-data.js"%}'></script>
+        <script type="text/javascript" src='{% static "assets/js/details.js"%}'></script>
+
+
+    </body>
+</html>

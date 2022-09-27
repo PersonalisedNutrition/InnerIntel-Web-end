@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,15 +15,15 @@
 
         <!-- Styles -->
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-        <link href="../static/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../static/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        <link href="../static/assets/plugins/icomoon/style.css" rel="stylesheet">
-        <link href="../static/assets/plugins/uniform/css/default.css" rel="stylesheet"/>
-        <link href="../static/assets/plugins/switchery/switchery.min.css" rel="stylesheet"/>
+        <link href='{% static "/assets/plugins/bootstrap/css/bootstrap.min.css" %}' rel="stylesheet">
+        <link href='{% static "assets/plugins/font-awesome/css/font-awesome.min.css"%}' rel="stylesheet">
+        <link href='{% static "assets/plugins/icomoon/style.css" %}' rel="stylesheet">
+        <link href='{% static "assets/plugins/uniform/css/default.css"%}' rel="stylesheet"/>
+        <link href='{% static "assets/plugins/switchery/switchery.min.css"%}' rel="stylesheet">
       
         <!-- Theme Styles -->
-        <link href="../static/assets/css/ecaps.min.css" rel="stylesheet">
-        <link href="../static/assets/css/custom.css" rel="stylesheet">
+        <link href='{% static "assets/css/ecaps.min.css"%}' rel="stylesheet">
+        <link href='{% static "assets/css/custom.css" %}' rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -59,7 +60,7 @@
                                 </form>
                             </div>
                             <div>
-                                <img src="../static/assets/images/login.png" style="width: 70%; height: 100vh;">
+                                <img src='{% static "assets/images/login.png"%}' style="width: 70%; height: 100vh;">
                             </div>
                         </div>
                         
@@ -69,11 +70,12 @@
         
         
         <!-- Javascripts -->
-        <script src="../static/assets/plugins/jquery/jquery-3.1.0.min.js"></script>
-        <script src="../static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../static/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-        <script src="../static/assets/plugins/uniform/js/jquery.uniform.standalone.js"></script>
-        <script src="../static/assets/plugins/switchery/switchery.min.js"></script>
-        <script src="../static/assets/js/ecaps.min.js"></script>
+        <script src= '{% static "assets/plugins/jquery/jquery-3.1.0.min.js"%}'></script>
+        <script src= '{% static "assets/plugins/bootstrap/js/bootstrap.min.js"%}'></script>
+        <script src= '{% static "assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"%}'></script>
+        <script src= '{% static "assets/plugins/uniform/js/jquery.uniform.standalone.js"%}'></script>
+        <script src= '{% static "assets/plugins/switchery/switchery.min.js"%}'></script>
+        <script src= '{% static "assets/plugins/datatables/js/jquery.datatables.min.js"%}'></script>
+        <script src= '{% static "assets/js/ecaps.min.js"%}'></script>
     </body>
 </html>

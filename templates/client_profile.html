@@ -15,26 +15,27 @@
 
         <!-- Styles -->
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-        <link href='{% static "/assets/plugins/bootstrap/css/bootstrap.min.css" %}' rel="stylesheet">
+        <link href='{% static "assets/plugins/bootstrap/css/bootstrap.min.css"%}' rel="stylesheet">
         <link href='{% static "assets/plugins/font-awesome/css/font-awesome.min.css"%}' rel="stylesheet">
-        <link href='{% static "assets/plugins/icomoon/style.css" %}' rel="stylesheet">
+        <link href='{% static "assets/plugins/icomoon/style.css"%}' rel="stylesheet">
         <link href='{% static "assets/plugins/uniform/css/default.css"%}' rel="stylesheet"/>
-        <link href='{% static "assets/plugins/switchery/switchery.min.css"%}' rel="stylesheet">
+        <link href='{% static "assets/plugins/switchery/switchery.min.css"%}' rel="stylesheet"/>
         <link href='{% static "assets/plugins/nvd3/nv.d3.min.css"%}' rel="stylesheet">
 
         <!-- Theme Styles -->
         <link href='{% static "assets/css/ecaps.min.css"%}' rel="stylesheet">
-        <link href='{% static "assets/css/custom.css" %}' rel="stylesheet">
+        <link href='{% static "assets/css/custom.css"%}' rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
-        
-        
+
+
         <![endif]-->
     </head>
+<!--     class="page-sidebar-collapsed page-sidebar-fixed"-->
     <body>
-        
+
         <!-- Page Container -->
         <div class="page-container">
             <!-- Page Sidebar -->
@@ -45,25 +46,29 @@
                     <i class="icon-close" id="sidebar-toggle-button-close"></i>
                 </a>
                 <br><br>
+                <div class="panel-body user-profile-panel">
+                    <img src='{% static "assets/images/profile.png"%}' class="user-profile-image img-circle" alt="">
+                    <h4 class="text-center m-t-lg">Mercy Chen</h4>
+                    <hr>
+                </div>
                 <div class="page-sidebar-inner">
                     <div class="page-sidebar-menu">
                         <ul class="accordion-menu">
                             <li>
                                 <a href="index.html">
-                                    <i class="menu-icon icon-format_list_bulleted"></i><span>Home Page</span>
+                                    <i class="menu-icon icon-home4"></i><span>Home Page</span>
                                 </a>
                             </li>
-                            <li class="active-page">
+                            <li>
                                 <a href="setting.html">
                                     <i class="menu-icon icon-star"></i><span>Setting</span>
                                 </a>
                             </li>
-                            
                         </ul>
                     </div>
                 </div>
             </div><!-- /Page Sidebar -->
-            
+
             <!-- Page Content -->
             <div class="page-content">
                 <!-- Page Header -->
@@ -90,9 +95,9 @@
                                     <i class="fa fa-angle-down"></i>
                                 </button>
                             </div>
-                        
+
                             <!-- Collect the nav links, forms, and other content for toggling -->
-                        
+
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
                                     <li><a href="javascript:void(0)" id="collapsed-sidebar-toggle-button"><i class="fa fa-bars"></i></a></li>
@@ -118,89 +123,83 @@
                 <!-- Page Inner -->
                 <div class="page-inner">
                     <div class="page-title">
-                        <h3 class="breadcrumb-header">Setting</h3>
+                        <h3 class="breadcrumb-header">Full Profile</h3>
                     </div>
                     <div id="main-wrapper">
-                        <!-- Colum One -->
                         <div class="col-lg-12">
                             <div class="panel panel-white">
-                                <div class="panel-heading clearfix">
-                                    <h4 class="panel-title">Mercy Chen</h4>
-                                </div>
                                 <div class="panel-body">
-                                    <form class="form-horizontal">
-                                        <div class="form-group">
-                                            <label for="inputEmail3" class="col-sm-2 control-label">Image Profile</label>
-                                            <div class="col-sm-10">
-                                                <div style="margin-bottom:15px;" class="input-group">
-                                                    <input type="text" class="form-control" placeholder="Choose File">
-                                                    <span class="input-group-btn">
-                                                        <button class="btn btn-success" type="button">Browse</button>
-                                                    </span>
-                                                </div>
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <img src='{% static "assets/images/client01.png"%}' class="user-profile-image" alt="">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <h3>Ric Curnow</h3>
+                                            <p>More Details</p>
+                                            <p>u12345678@anu.edu.au</p>
+                                        </div>
+                                        <div class="col-lg-2">
+<!--                                            <span class="label label-danger">High</span>-->
+                                            <h4>Priority</h4>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-danger">High</button>
+                                                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                    <span class="caret"></span>
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Low</a></li>
+                                                    <li><a href="#">Medium</a></li>
+                                                    <li><a href="#">High</a></li>
+                                                </ul>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="inputEmail3" class="col-sm-2 control-label">First Name</label>
-                                            <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputEmail3" placeholder="Mercy">
-                                            </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="alert alert-default col-lg-4" role="alert">
+                                            <h6>Gender</h6>
+                                            Male
                                         </div>
-                                        <div class="form-group">
-                                            <label for="inputPassword3" class="col-sm-2 control-label">Last Name</label>
-                                            <div class="col-sm-10">
-                                            <input type="password" class="form-control" id="inputPassword3" placeholder="Chen">
-                                            </div>
+                                        <div class="alert alert-default col-lg-4" role="alert">
+                                            <h6>Height</h6>
+                                            185cm
                                         </div>
-                                        <div class="form-group">
-                                            <label for="inputEmail3" class="col-sm-2 control-label">Phone</label>
-                                            <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputEmail3" placeholder="1234567890">
-                                            </div>
+                                        <div class="alert alert-default col-lg-4" role="alert">
+                                            <h6>Weight</h6>
+                                            90kg
                                         </div>
-                                        <div class="form-group">
-                                            <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                                            <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputEmail3" placeholder="mercychen03@gmail.com">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                                            <div class="col-sm-10">
-                                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-2 control-label">Notification Setting</label>
-                                            <div class="col-sm-10">
-                                                <select style="margin-bottom:15px;" class="form-control">
-                                                    <option>need to discuss</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                            <button type="submit" class="btn btn-success" style="margin-top:10px;margin-bottom:-14px;">SAVE</button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    </div>
+                                    <div class="panel-body">
+                                        <h4>Comment</h4>
+                                        <input type="text" class="form-control" id="input-Default" placeholder="This patient does not like fruit.">
+                                    </div>
+                                    <hr>
+                                    <div class="panel-body">
+                                        <h4>Medical History</h4>
+                                        <ul>
+                                            <li>High blood pressure</li>
+                                            <li>Diabetes</li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel-body">
+                                        <h4>Disease</h4>
+                                        <ul>
+                                            <li>glaucoma</li>
+                                            <li>ADHD</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        <div>
+                        </div>
+
+
                     </div><!-- Main Wrapper -->
                 </div><!-- /Page Inner -->
-                
-            
             </div><!-- /Page Content -->
         </div><!-- /Page Container -->
-            </div>
-        </div>
-        
+
+
         <!-- Javascripts -->
         <script src='{% static "assets/js/pages/dashboard.js"%}'></script>
         <script src='{% static "assets/plugins/jquery/jquery-3.1.0.min.js"%}'></script>
@@ -210,7 +209,7 @@
         <script src='{% static "assets/plugins/switchery/switchery.min.js"%}'></script>
         <script src='{% static "assets/plugins/chartjs/chart.min.js"%}'></script>
         <script src='{% static "assets/plugins/d3/d3.min.js"%}'></script>
-         <script src='{% static "assets/plugins/nvd3/nv.d3.min.js"%}'></script>
+        <script src='{% static "assets/plugins/nvd3/nv.d3.min.js"%}'></script>
         <script src='{% static "assets/plugins/flot/jquery.flot.min.js"%}'></script>
         <script src='{% static "assets/plugins/flot/jquery.flot.time.min.js"%}'></script>
         <script src='{% static "assets/plugins/flot/jquery.flot.symbol.min.js"%}'></script>
@@ -219,6 +218,7 @@
         <script src='{% static "assets/plugins/flot/jquery.flot.pie.min.js"%}'></script>
         <script src='{% static "assets/js/ecaps.min.js"%}'></script>
         <script src="{% static "assets/js/pages/chart.js"%}"></script>
+
 
     </body>
 </html>

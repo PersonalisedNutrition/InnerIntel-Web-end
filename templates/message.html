@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,16 +15,16 @@
 
         <!-- Styles -->
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-        <link href="../static/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../static/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        <link href="../static/assets/plugins/icomoon/style.css" rel="stylesheet">
-        <link href="../static/assets/plugins/uniform/css/default.css" rel="stylesheet"/>
-        <link href="../static/assets/plugins/switchery/switchery.min.css" rel="stylesheet"/>
-        <link href="../static/assets/plugins/nvd3/nv.d3.min.css" rel="stylesheet">
-      
+        <link href='{% static "/assets/plugins/bootstrap/css/bootstrap.min.css" %}' rel="stylesheet">
+        <link href='{% static "assets/plugins/font-awesome/css/font-awesome.min.css"%}' rel="stylesheet">
+        <link href='{% static "assets/plugins/icomoon/style.css" %}' rel="stylesheet">
+        <link href='{% static "assets/plugins/uniform/css/default.css"%}' rel="stylesheet"/>
+        <link href='{% static "assets/plugins/switchery/switchery.min.css"%}' rel="stylesheet">
+        <link href='{% static "assets/plugins/nvd3/nv.d3.min.css"%}' rel="stylesheet">
+
         <!-- Theme Styles -->
-        <link href="../static/assets/css/ecaps.min.css" rel="stylesheet">
-        <link href="../static/assets/css/custom.css" rel="stylesheet">
+        <link rel="stylesheet" href='{% static "assets/css/ecaps.min.css"%}' >
+        <link rel="stylesheet" href='{% static "assets/css/custom.css"%}' >
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,24 +45,29 @@
                     <i class="icon-close" id="sidebar-toggle-button-close"></i>
                 </a>
                 <br><br>
+                <div class="panel-body user-profile-panel">
+                    <img src='{% static "assets/images/profile.png"%}' class="user-profile-image img-circle" alt="">
+                    <h4 class="text-center m-t-lg">Mercy Chen</h4>
+                    <hr>
+                </div>
                 <div class="page-sidebar-inner">
                     <div class="page-sidebar-menu">
                         <ul class="accordion-menu">
                             <li>
                                 <a href="index.html">
-                                    <i class="menu-icon icon-format_list_bulleted"></i><span>My Patients</span>
+                                    <i class="menu-icon icon-format_list_bulleted"></i><span>Home Page</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="dashboard.html">
-                                    <i class="menu-icon icon-home4"></i><span>Dashboard</span>
-                                </a>
-                            </li>
-                            <li class="active-page">
-                                <a href="message.html">
-                                    <i class="menu-icon icon-inbox"></i><span>Messages</span>
-                                </a>
-                            </li>
+<!--                            <li>-->
+<!--                                <a href="dashboard.html">-->
+<!--                                    <i class="menu-icon icon-home4"></i><span>Dashboard</span>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                            <li class="active-page">-->
+<!--                                <a href="message.html">-->
+<!--                                    <i class="menu-icon icon-inbox"></i><span>Messages</span>-->
+<!--                                </a>-->
+<!--                            </li>-->
                             <li>
                                 <a href="setting.html">
                                     <i class="menu-icon icon-star"></i><span>Setting</span>
@@ -287,7 +293,7 @@
                                     </div>
                                 </div>
                             </div>
-                        <div>
+                        </div>
                     </div><!-- Main Wrapper -->
                 </div><!-- /Page Inner -->
                 
@@ -297,21 +303,24 @@
         
         
         <!-- Javascripts -->
-        <script src="../static/assets/plugins/jquery/jquery-3.1.0.min.js"></script>
-        <script src="../static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../static/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-        <script src="../static/assets/plugins/uniform/js/jquery.uniform.standalone.js"></script>
-        <script src="../static/assets/plugins/switchery/switchery.min.js"></script>
-        <script src="../static/assets/plugins/d3/d3.min.js"></script>
-        <script src="../static/assets/plugins/nvd3/nv.d3.min.js"></script>
-        <script src="../static/assets/plugins/flot/jquery.flot.min.js"></script>
-        <script src="../static/assets/plugins/flot/jquery.flot.time.min.js"></script>
-        <script src="../static/assets/plugins/flot/jquery.flot.symbol.min.js"></script>
-        <script src="../static/assets/plugins/flot/jquery.flot.resize.min.js"></script>
-        <script src="../static/assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
-        <script src="../static/assets/plugins/flot/jquery.flot.pie.min.js"></script>
-        <script src="../static/assets/plugins/chartjs/chart.min.js"></script>
-        <script src="../static/assets/js/ecaps.min.js"></script>
-        <script src="../static/assets/js/pages/dashboard.js"></script>
+
+        <script src='{% static "assets/plugins/nvd3/nv.d3.min.js"%}'></script>
+        <script src='{% static "assets/js/pages/dashboard.js"%}'></script>
+        <script src='{% static "assets/plugins/jquery/jquery-3.1.0.min.js"%}'></script>
+        <script src='{% static "assets/plugins/bootstrap/js/bootstrap.min.js"%}'></script>
+        <script src='{% static "assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"%}'></script>
+        <script src='{% static "assets/plugins/uniform/js/jquery.uniform.standalone.js"%}'></script>
+        <script src='{% static "assets/plugins/switchery/switchery.min.js"%}'></script>
+        <script src='{% static "assets/plugins/chartjs/chart.min.js"%}'></script>
+        <script src='{% static "assets/plugins/d3/d3.min.js"%}'></script>
+        <script src='{% static "assets/plugins/nvd3/nv.d3.min.js"%}'></script>
+        <script src='{% static "assets/plugins/flot/jquery.flot.min.js"%}'></script>
+        <script src='{% static "assets/plugins/flot/jquery.flot.time.min.js"%}'></script>
+        <script src='{% static "assets/plugins/flot/jquery.flot.symbol.min.js"%}'></script>
+        <script src='{% static "assets/plugins/flot/jquery.flot.resize.min.js"%}'></script>
+        <script src='{% static "assets/plugins/flot/jquery.flot.tooltip.min.js"%}'></script>
+        <script src='{% static "assets/plugins/flot/jquery.flot.pie.min.js"%}'></script>
+        <script src='{% static "assets/js/ecaps.min.js"%}'></script>
+        <script src="{% static "assets/js/pages/chart.js"%}"></script>
     </body>
 </html>
