@@ -2,13 +2,13 @@ $(document).ready(function() {
     
     "use strict";
     
-    new Chart(document.getElementById("chart1"),{"type":"line","data":{"labels":["January","February","March","April","May","June","July"],"datasets":[{"label":"My First Dataset","data":[65,59,80,81,56,55,40],"fill":false,"borderColor":"rgb(99, 203, 137)","lineTension":0.1}]},"options":{}});
-    
-    new Chart(document.getElementById("chart2"),{"type":"bar","data":{"labels":["January","February","March","April","May","June","July"],"datasets":[{"label":"My First Dataset","data":[65,59,80,81,56,55,40],"fill":false,"backgroundColor":["rgba(236, 94, 105, 0.2)","rgba(255, 159, 64, 0.2)","rgba(241, 194, 5, 0.2)","rgba(99, 203, 137, 0.2)","rgba(0, 112, 224, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)"],"borderColor":["rgb(236, 94, 105)","rgb(255, 159, 64)","rgb(241, 194, 5)","rgb(99, 203, 137)","rgb(0, 112, 224)","rgb(153, 102, 255)","rgb(201, 203, 207)"],"borderWidth":1}]},"options":{"scales":{"yAxes":[{"ticks":{"beginAtZero":true}}]}}});
-    
-    new Chart(document.getElementById("chart3"),{"type":"radar","data":{"labels":["Eating","Drinking","Sleeping","Designing","Coding","Cycling","Running"],"datasets":[{"label":"My First Dataset","data":[65,59,90,81,56,55,40],"fill":true,"backgroundColor":"rgba(236, 94, 105, 0.2)","borderColor":"rgb(236, 94, 105)","pointBackgroundColor":"rgb(236, 94, 105)","pointBorderColor":"#fff","pointHoverBackgroundColor":"#fff","pointHoverBorderColor":"rgb(236, 94, 105)"},{"label":"My Second Dataset","data":[28,48,40,19,96,27,100],"fill":true,"backgroundColor":"rgba(0, 112, 224, 0.2)","borderColor":"rgb(0, 112, 224)","pointBackgroundColor":"rgb(0, 112, 224)","pointBorderColor":"#fff","pointHoverBackgroundColor":"#fff","pointHoverBorderColor":"rgb(0, 112, 224)"}]},"options":{"elements":{"line":{"tension":0,"borderWidth":3}}}});
-    
-    new Chart(document.getElementById("chart4"),{"type":"doughnut","data":{"labels":["Red","Blue","Yellow"],"datasets":[{"label":"My First Dataset","data":[300,50,100],"backgroundColor":["rgb(236, 94, 105)","rgb(0, 112, 224)","rgb(241, 194, 5)"]}]}});
+//    new Chart(document.getElementById("chart1"),{"type":"line","data":{"labels":["January","February","March","April","May","June","July"],"datasets":[{"label":"My First Dataset","data":[65,59,80,81,56,55,40],"fill":false,"borderColor":"rgb(99, 203, 137)","lineTension":0.1}]},"options":{}});
+//
+//    new Chart(document.getElementById("chart2"),{"type":"bar","data":{"labels":["January","February","March","April","May","June","July"],"datasets":[{"label":"My First Dataset","data":[65,59,80,81,56,55,40],"fill":false,"backgroundColor":["rgba(236, 94, 105, 0.2)","rgba(255, 159, 64, 0.2)","rgba(241, 194, 5, 0.2)","rgba(99, 203, 137, 0.2)","rgba(0, 112, 224, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)"],"borderColor":["rgb(236, 94, 105)","rgb(255, 159, 64)","rgb(241, 194, 5)","rgb(99, 203, 137)","rgb(0, 112, 224)","rgb(153, 102, 255)","rgb(201, 203, 207)"],"borderWidth":1}]},"options":{"scales":{"yAxes":[{"ticks":{"beginAtZero":true}}]}}});
+//
+//    new Chart(document.getElementById("chart3"),{"type":"radar","data":{"labels":["Eating","Drinking","Sleeping","Designing","Coding","Cycling","Running"],"datasets":[{"label":"My First Dataset","data":[65,59,90,81,56,55,40],"fill":true,"backgroundColor":"rgba(236, 94, 105, 0.2)","borderColor":"rgb(236, 94, 105)","pointBackgroundColor":"rgb(236, 94, 105)","pointBorderColor":"#fff","pointHoverBackgroundColor":"#fff","pointHoverBorderColor":"rgb(236, 94, 105)"},{"label":"My Second Dataset","data":[28,48,40,19,96,27,100],"fill":true,"backgroundColor":"rgba(0, 112, 224, 0.2)","borderColor":"rgb(0, 112, 224)","pointBackgroundColor":"rgb(0, 112, 224)","pointBorderColor":"#fff","pointHoverBackgroundColor":"#fff","pointHoverBorderColor":"rgb(0, 112, 224)"}]},"options":{"elements":{"line":{"tension":0,"borderWidth":3}}}});
+    // Doughnut
+    new Chart(document.getElementById("chart4"),{"type":"doughnut","data":{"labels":["Red","Blue"],"datasets":[{"label":"Vomiting","data":[50,50],"backgroundColor":["rgb(236, 94, 105)","rgb(0, 112, 224)"]}]}});
     
     
     
@@ -283,21 +283,21 @@ function stream_index(d, i) {
 
     var flot2 = function () {
         var data1 = [[1, 3],
-                [2, 345],
-                [3, 34],
-                [4, 234],
-                [5, 435],
-                [6, 458],
-                [7, 879]
+                [2, 2],
+                [3, 1],
+                [4, 0],
+                [5, 2],
+                [6, 1],
+                [7, 3]
             ];
         var data2 = [
-                [1, 134],
-                [2, 789],
-                [3, 423],
-                [4, 416],
-                [5, 489],
-                [6, 157],
-                [7, 340]
+                [1, 1],
+                [2, 3],
+                [3, 2],
+                [4, 2],
+                [5, 0],
+                [6, 1],
+                [7, 1]
             ];
         var dataset = [{
             data: data1,
@@ -307,7 +307,7 @@ function stream_index(d, i) {
             data: data2,
             color: "#63CB89"
         }];
-        var ticks = [[1, "1"], [2, "2"], [3, "3"], [4, "4"], [5, "5"], [6, "6"], [7, "7"]];
+        var ticks = [[1, "Mon"], [2, "Tue"], [3, "Wed"], [4, "Thu"], [5, "Fri"], [6, "Sat"], [7, "Sun"]];
 
         var options = {
             series: {
@@ -319,6 +319,13 @@ function stream_index(d, i) {
             xaxis: {
                 ticks: ticks,
                 tickLength: 0
+            },
+            yaxis: {
+//                ticks: [25.49, 28.49, 31.49, 34.49, 37.49, 40.49],
+                min: 0,
+                max: 4,
+                stepSize: 1,
+                tickDecimals:0
             },
             legend: {
                 show: false
