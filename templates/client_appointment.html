@@ -40,7 +40,7 @@
         <div class="page-container">
             <!-- Page Sidebar -->
             <div class="page-sidebar">
-                <a class="logo-box" href="index.html">
+                <a class="logo-box" href="{% url 'index' %}">
                     <span>Inner Intel</span>
                     <i class="icon-radio_button_unchecked" id="fixed-sidebar-toggle-button"></i>
                     <i class="icon-close" id="sidebar-toggle-button-close"></i>
@@ -55,12 +55,12 @@
                     <div class="page-sidebar-menu">
                         <ul class="accordion-menu">
                             <li>
-                                <a href="index.html">
+                                <a href="{% url 'index' %}">
                                     <i class="menu-icon icon-home4"></i><span>Home Page</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="setting.html">
+                                <a href="{% url 'setting' %}">
                                     <i class="menu-icon icon-star"></i><span>Setting</span>
                                 </a>
                             </li>
@@ -89,7 +89,7 @@
                             <div class="navbar-header">
                                 <div class="logo-sm">
                                     <a href="javascript:void(0)" id="sidebar-toggle-button"><i class="fa fa-bars"></i></a>
-                                    <a class="logo-box" href="index.html"><span>Inner Intel</span></a>
+                                    <a class="logo-box" href="{% url 'index' %}"><span>Inner Intel</span></a>
                                 </div>
                                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                                     <i class="fa fa-angle-down"></i>
@@ -108,11 +108,11 @@
                                     <li class="dropdown user-dropdown">
                                         <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle"></i></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="dashboard.html">Profile</a></li>
-                                            <li><a href="message.html"><span class="badge pull-right badge-danger">42</span>Messages</a></li>
+
+                                            <li><a href="{% url 'message' %}"><span class="badge pull-right badge-danger">42</span>Messages</a></li>
                                             <li role="separator" class="divider"></li>
-                                            <li><a href="setting.html">Account Settings</a></li>
-                                            <li><a href="login.html">Log Out</a></li>
+                                            <li><a href="{% url 'setting' %}">Account Settings</a></li>
+                                            <li><a href="{% url 'login' %}">Log Out</a></li>
                                         </ul>
                                     </li>
                                 </ul>
