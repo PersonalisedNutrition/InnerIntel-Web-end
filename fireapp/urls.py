@@ -12,4 +12,7 @@ urlpatterns = [
     path('message/', views.message, name='message'),
     path('setting/', views.setting, name='setting'),
 
+    # urls in Login Page
+    path('login/user/', views.login, name='login_user'),
+
 ]
