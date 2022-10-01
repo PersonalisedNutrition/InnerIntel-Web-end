@@ -14,5 +14,6 @@ urlpatterns = [
 
     # urls in Login Page
     path('login/user/', views.login, name='login_user'),
+    path('setting/user/', views.setting, name='setting_user'),
 
 ]

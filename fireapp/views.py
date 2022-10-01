@@ -47,8 +47,9 @@ def index(request):
 def check_pwd(input_email, input_pwd):
     user = database.child('Users').order_by_child('email').equal_to(input_email).get()
     if user.val():
-
-        return list(user.val().items())[0][1].get('name'), list(user.val().items())[0][1].get('pwd') == input_pwd
+        # print(list(user.val().items())[0][1].get('name'))
+        return list(user.val().items())[0][1].get('name'), list(user.val().items())[0][1].get('email'), \
+               list(user.val().items())[0][1].get('pwd') == input_pwd
     else:
         return False
 
@@ -62,11 +63,13 @@ def login(request):
         login_email = request.POST.get('input_email')
         login_pwd = request.POST.get('input_pwd')
         # check if the email and pwd can match the Database
-        username, state = check_pwd(login_email, login_pwd)
+        username, email, state = check_pwd(login_email, login_pwd)
         if state:
             # put the login username to cookies
-            response = render(request, "index.html", {'username': username})
+            dic = {'username': username, 'email': email}
+            response = render(request, "index.html", dic)
             response.set_signed_cookie("username", username)
+            response.set_signed_cookie("email", email)
             return response
         # if the email and pwd can not match
         else:
@@ -107,6 +110,45 @@ def message(request):
     return render(request, 'message.html', {'username': username})
 
 
+def update_client_setting(email, first_name, last_name, phone, password):
+    user = database.child('Users').order_by_child('email').equal_to(email).get()
+    nid = list(user.val().items())[0][1].get('nid')
+    print(nid)
+    if user.val():
+        database.child('Users').child(nid).update(
+            {"firstname": first_name, 'lastname': last_name, 'phone': phone, 'password': password})
+        return True
+    else:
+        return False
+
+
+def find_information(email):
+    user = database.child('Users').order_by_child('email').equal_to(email).get()
+    firstname = list(user.val().items())[0][1].get('firstname')
+    lastname = list(user.val().items())[0][1].get('lastname')
+    phone = list(user.val().items())[0][1].get('phone')
+    password = list(user.val().items())[0][1].get('password')
+    email = list(user.val().items())[0][1].get('email')
+    return {'email': email, 'first_name': firstname, 'last_name': lastname, 'phone': phone, 'password': password}
+
+
 def setting(request):
-    username = request.get_signed_cookie('username')
-    return render(request, 'setting.html', {'username': username})
+    email = request.get_signed_cookie('email')
+    if request.method == "POST":
+        first_name = request.POST.get('firstname')
+        last_name = request.POST.get('lastname')
+        phone = request.POST.get('phone')
+        password = request.POST.get('password')
+        if update_client_setting(email, first_name, last_name, phone, password):
+            find_info = find_information(email)
+            msg = 'Update Successful!'
+            find_info['msg'] = msg
+            response = render(request, "setting.html", find_info)
+            response.set_signed_cookie("email", email)
+            return response
+        else:
+            msg = 'Failed to update'
+            return render(request, "setting.html", {'msg': msg})
+    else:
+        find_info = find_information(email)
+        return render(request, 'setting.html', find_info)
