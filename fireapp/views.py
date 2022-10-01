@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import pyrebase
 
 # Import this library for pop-up alert messages
@@ -37,7 +37,8 @@ def index(request):
         # 'gender': gender,
         # 'ip_address': ip_address
     }
-    return render(request, 'index.html')
+    username = request.get_signed_cookie('username')
+    return render(request, 'index.html', {'username': username})
 
 
 # manipulate database
@@ -46,7 +47,8 @@ def index(request):
 def check_pwd(input_email, input_pwd):
     user = database.child('Users').order_by_child('email').equal_to(input_email).get()
     if user.val():
-        return list(user.val().items())[0][1].get('pwd') == input_pwd
+
+        return list(user.val().items())[0][1].get('name'), list(user.val().items())[0][1].get('pwd') == input_pwd
     else:
         return False
 
@@ -60,9 +62,12 @@ def login(request):
         login_email = request.POST.get('input_email')
         login_pwd = request.POST.get('input_pwd')
         # check if the email and pwd can match the Database
-
-        if check_pwd(login_email, login_pwd):
-            return render(request, 'index.html')
+        username, state = check_pwd(login_email, login_pwd)
+        if state:
+            # put the login username to cookies
+            response = render(request, "index.html", {'username': username})
+            response.set_signed_cookie("username", username)
+            return response
         # if the email and pwd can not match
         else:
             error_msg = 'Wrong email or password'
@@ -73,28 +78,35 @@ def login(request):
 
 
 def client(request):
-    return render(request, 'client.html')
+    username = request.get_signed_cookie('username')
+    return render(request, 'client.html', {'username': username})
 
 
 def client_data(request):
-    return render(request, 'client_data.html')
+    username = request.get_signed_cookie('username')
+    return render(request, 'client_data.html', {'username': username})
 
 
 def client_appointment(request):
-    return render(request, 'client_appointment.html')
+    username = request.get_signed_cookie('username')
+    return render(request, 'client_appointment.html', {'username': username})
 
 
 def client_note(request):
-    return render(request, 'client_note.html')
+    username = request.get_signed_cookie('username')
+    return render(request, 'client_note.html', {'username': username})
 
 
 def client_profile(request):
-    return render(request, 'client_profile.html')
+    username = request.get_signed_cookie('username')
+    return render(request, 'client_profile.html', {'username': username})
 
 
 def message(request):
-    return render(request, 'message.html')
+    username = request.get_signed_cookie('username')
+    return render(request, 'message.html', {'username': username})
 
 
 def setting(request):
-    return render(request, 'setting.html')
+    username = request.get_signed_cookie('username')
+    return render(request, 'setting.html', {'username': username})
