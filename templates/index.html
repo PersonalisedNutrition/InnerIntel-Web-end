@@ -1,268 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-    {%load static %}
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Responsive Admin Dashboard Template">
-        <meta name="keywords" content="admin,dashboard">
-        <meta name="author" content="skcats">
-        <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        
-        <!-- Title -->
-        <title>INNER INTEL - Beta</title>
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Responsive Admin Dashboard Template">
+    <meta name="keywords" content="admin,dashboard">
+    <meta name="author" content="skcats">
+    <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <!-- Styles -->
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-        <link rel="stylesheet" href='{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}'>
-        <link rel="stylesheet" href='{% static "assets/plugins/font-awesome/css/font-awesome.min.css"%}'>
-        <link rel="stylesheet" href='{% static "assets/plugins/icomoon/style.css"%}'>
-        <link rel="stylesheet" href='{% static "assets/plugins/uniform/css/default.css" %}'>
-        <link rel="stylesheet" type="text/css" href='{% static "assets/plugins/switchery/switchery.min.css" %}'>
-        <link href='{% static "assets/plugins/datatables/css/jquery.datatables.min.css"%}'>
-        <link rel="stylesheet" type="text/css" href='{% static "assets/plugins/datatables/css/jquery.datatables_themeroller.css"%}' >
-        <link rel="stylesheet" type="text/css" href='{% static "assets/plugins/bootstrap-datepicker/css/datepicker3.css"%}' >
-      
-        <!-- Theme Styles -->
-        <link rel="stylesheet" href='{% static "assets/css/ecaps.min.css"%}' >
-        <link rel="stylesheet" href='{% static "assets/css/custom.css"%}' >
+    <!-- Title -->
+    <title>INNER INTEL - Beta</title>
 
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        
-        
-        <![endif]-->
-    </head>
-    <body>
-        
-        <!-- Page Container -->
-        <div class="page-container">
-            <!-- Page Sidebar -->
-            <div class="page-sidebar">
-                <a class="logo-box" href="{% url 'index' %}">
-                    <span>Inner Intel</span>
-                    <i class="icon-radio_button_unchecked" id="fixed-sidebar-toggle-button"></i>
-                    <i class="icon-close" id="sidebar-toggle-button-close"></i>
-                </a>
-                <br><br>
-                <div class="panel-body user-profile-panel">
-                    <img src='{% static "assets/images/profile.png"%}' class="user-profile-image img-circle" alt="">
-                    <h4 class="text-center m-t-lg">{{ username }}</h4>
-                    <hr>
-                </div>
-                <div class="page-sidebar-inner">
-                    <div class="page-sidebar-menu">
-                        <ul class="accordion-menu">
-                            <li class="active-page">
-                                <a href="{% url 'index' %}">
-                                    <i class="menu-icon icon-home4"></i><span>Home Page</span>
-                                </a>
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href='{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}'>
+    <link rel="stylesheet" href='{% static "assets/plugins/font-awesome/css/font-awesome.min.css" %}'>
+    <link rel="stylesheet" href='{% static "assets/plugins/icomoon/style.css" %}'>
+    <link rel="stylesheet" href='{% static "assets/plugins/uniform/css/default.css" %}'>
+    <link rel="stylesheet" type="text/css" href='{% static "assets/plugins/switchery/switchery.min.css" %}'>
+    <link href='{% static "assets/plugins/datatables/css/jquery.datatables.min.css" %}'>
+    <link rel="stylesheet" type="text/css"
+          href='{% static "assets/plugins/datatables/css/jquery.datatables_themeroller.css" %}'>
+    <link rel="stylesheet" type="text/css"
+          href='{% static "assets/plugins/bootstrap-datepicker/css/datepicker3.css" %}'>
+
+    <!-- Theme Styles -->
+    <link rel="stylesheet" href='{% static "assets/css/ecaps.min.css" %}'>
+    <link rel="stylesheet" href='{% static "assets/css/custom.css" %}'>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+
+
+    <![endif]-->
+</head>
+<body>
+
+<!-- Page Container -->
+<div class="page-container">
+    <!-- Page Sidebar -->
+    <div class="page-sidebar">
+        <a class="logo-box" href="{% url 'index' %}">
+            <span>Inner Intel</span>
+            <i class="icon-radio_button_unchecked" id="fixed-sidebar-toggle-button"></i>
+            <i class="icon-close" id="sidebar-toggle-button-close"></i>
+        </a>
+        <br><br>
+        <div class="panel-body user-profile-panel">
+            <img src='{% static "assets/images/profile.png" %}' class="user-profile-image img-circle" alt="">
+            <h4 class="text-center m-t-lg">{{ username }}</h4>
+            <hr>
+        </div>
+        <div class="page-sidebar-inner">
+            <div class="page-sidebar-menu">
+                <ul class="accordion-menu">
+                    <li class="active-page">
+                        <a href="{% url 'index' %}">
+                            <i class="menu-icon icon-home4"></i><span>Home Page</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'setting' %}">
+                            <i class="menu-icon icon-star"></i><span>Setting</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div><!-- /Page Sidebar -->
+
+    <!-- Page Content -->
+    <div class="page-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="search-form">
+                <form action="#" method="GET">
+                    <div class="input-group">
+                        <input type="text" name="search" class="form-control search-input"
+                               placeholder="Type something...">
+                        <span class="input-group-btn">
+                                    <button class="btn btn-default" id="close-search" type="button"><i
+                                            class="icon-close"></i></button>
+                                </span>
+                    </div>
+                </form>
+            </div>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <div class="logo-sm">
+                            <a href="javascript:void(0)" id="sidebar-toggle-button"><i class="fa fa-bars"></i></a>
+                            <a class="logo-box" href="{% url 'index' %}"><span>Inner Intel</span></a>
+                        </div>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <i class="fa fa-angle-down"></i>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="javascript:void(0)" id="collapsed-sidebar-toggle-button"><i
+                                    class="fa fa-bars"></i></a></li>
+                            <li><a href="javascript:void(0)" id="toggle-fullscreen"><i class="fa fa-expand"></i></a>
                             </li>
-                            <li>
-                                <a href="{% url 'setting' %}">
-                                    <i class="menu-icon icon-star"></i><span>Setting</span>
-                                </a>
+                            <li><a href="javascript:void(0)" id="search-button"><i class="fa fa-search"></i></a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown user-dropdown">
+                                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"
+                                   role="button" aria-haspopup="true" aria-expanded="false"><i
+                                        class="fa fa-user-circle"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{% url 'message' %}"><span
+                                            class="badge pull-right badge-danger">42</span>Messages</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="{% url 'setting' %}">Account Settings</a></li>
+                                    <li><a href="{% url 'login' %}">Log Out</a></li>
+                                </ul>
                             </li>
                         </ul>
-                    </div>
-                </div>
-            </div><!-- /Page Sidebar -->
-            
-            <!-- Page Content -->
-            <div class="page-content">
-                <!-- Page Header -->
-                <div class="page-header">
-                    <div class="search-form">
-                        <form action="#" method="GET">
-                            <div class="input-group">
-                                <input type="text" name="search" class="form-control search-input" placeholder="Type something...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" id="close-search" type="button"><i class="icon-close"></i></button>
-                                </span>
-                            </div>
-                        </form>
-                    </div>
-                    <nav class="navbar navbar-default">
-                        <div class="container-fluid">
-                            <!-- Brand and toggle get grouped for better mobile display -->
-                            <div class="navbar-header">
-                                <div class="logo-sm">
-                                    <a href="javascript:void(0)" id="sidebar-toggle-button"><i class="fa fa-bars"></i></a>
-                                    <a class="logo-box" href="{% url 'index' %}"><span>Inner Intel</span></a>
-                                </div>
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                    <i class="fa fa-angle-down"></i>
-                                </button>
-                            </div>
-                        
-                            <!-- Collect the nav links, forms, and other content for toggling -->
-                        
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav">
-                                    <li><a href="javascript:void(0)" id="collapsed-sidebar-toggle-button"><i class="fa fa-bars"></i></a></li>
-                                    <li><a href="javascript:void(0)" id="toggle-fullscreen"><i class="fa fa-expand"></i></a></li>
-                                    <li><a href="javascript:void(0)" id="search-button"><i class="fa fa-search"></i></a></li>
-                                </ul>
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li class="dropdown user-dropdown">
-                                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="{% url 'message' %}"><span class="badge pull-right badge-danger">42</span>Messages</a></li>
-                                            <li role="separator" class="divider"></li>
-                                            <li><a href="{% url 'setting' %}">Account Settings</a></li>
-                                            <li><a href="{% url 'login' %}">Log Out</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div><!-- /.navbar-collapse -->
-                        </div><!-- /.container-fluid -->
-                    </nav>
-                </div><!-- /Page Header -->
-                <!-- Page Inner -->
-                <div class="page-inner">
-                    <div class="page-title">
-                        <h3 class="breadcrumb-header">Home Page</h3>
-                    </div>
-                    <div id="main-wrapper">
-                        <!-- Column One -->
-                        <div class="col-lg-12">
-                            <div class="panel panel-white">
-                                <div class="panel-heading clearfix">
-                                    <h4 class="panel-title">Client List</h4>
-                                    <!--<a  href="patient.html"><button>Details</button></a>-->
-                                </div>
-                                <div class="panel-body">
-                                     <div class="table-responsive">
-                                     <table id="example" class="display table" style="width: 100%; cellspacing: 0;">
-                                         <thead>
-                                             <tr>
-                                                 <th>Client</th>
-                                                 <th>Priority</th>
-                                                 <th>Next Appointment</th>
-                                                 <th>New Messages</th>
-                                             </tr>
-                                         </thead>
-                                         <tfoot>
-                                             <tr>
-                                                 <th>Client</th>
-                                                 <th>Priority</th>
-                                                 <th>Next Appointment</th>
-                                                 <th>New Messages</th>
-                                             </tr>
-                                         </tfoot>
-                                         <tbody>
-                                             <tr>
-                                                 <td><a href="{% url 'client' %}"><img src='{% static "assets/images/client01.png"%}' width="25" height="25"> Ric Curnow</a></td>
-                                                 <td><span class="label label-danger">High</span></td>
-                                                 <td>2022/10/1</td>
-                                                 <td><a href="{% url 'message' %}" style = "color:#00A600"><i class="fa fa-comments" aria-hidden="true"> 2 new messages</i></a></td>
-                                             </tr>
-                                             <tr>
-                                                 <td><a href="{% url 'client' %}"><img src='{% static "assets/images/image.jpeg"%}' width="25" height="25"> Garrett Winters</a></td>
-                                                 <td><span class="label label-danger">High</span></td>
-                                                 <td>2022/9/3</td>
-                                                 <td><a href="{% url 'message' %}" style = "color:#BEBEBE"><i class="fa fa-comments" aria-hidden="true"> 2022/9/10</i></a></td>
-                                             </tr>
-                                             <tr>
-                                                 <td><a href="{% url 'client' %}"><img src='{% static "assets/images/image.jpeg"%}' width="25" height="25"> Ashton Cox</a></td>
-                                                 <td><span class="label label-danger">High</span></td>
-                                                 <td>2022/9/14</td>
-                                                 <td><a href="{% url 'message' %}" style = "color:#BEBEBE"><i class="fa fa-comments" aria-hidden="true"> 2022/9/10</i></a></td>
-                                             </tr>
-                                             <tr>
-                                                 <td><a href="{% url 'client' %}"><img  src='{% static "assets/images/image.jpeg"%}' width="25" height="25"> Cedric Kelly</a></td>
-                                                 <td><span class="label label-danger">High</span></td>
-                                                 <td>2022/9/22</td>
-                                                 <td><a href="{% url 'message' %}" style = "color:#BEBEBE"><i class="fa fa-comments" aria-hidden="true"> 2022/9/10</i></a></td>
-                                             </tr>
-                                             <tr>
-                                                 <td><a href="{% url 'client' %}"><img  src='{% static "assets/images/image.jpeg"%}' width="25" height="25"> Airi Satou</a></td>
-                                                 <td><span class="label label-warning">Medium</span></td>
-                                                 <td>2022/9/19</td>
-                                                 <td><a href="{% url 'message' %}" style="color:#00A600"><i class="fa fa-comments" aria-hidden="true"> 1 new message</i></a></td>
-                                             </tr>
-                                             <tr>
-                                                 <td><a href="{% url 'client' %}"><img  src='{% static "assets/images/image.jpeg"%}' width="25" height="25"> Brielle Williamson</a></td>
-                                                 <td><span class="label label-warning">Medium</span></td>
-                                                 <td>2022/9/12</td>
-                                                 <td><a href="{% url 'message' %}" style = "color:#BEBEBE"><i class="fa fa-comments" aria-hidden="true"> 2022/9/10</i></a></td>
-                                             </tr>
-                                             <tr>
-                                                 <td><a href="{% url 'client' %}"><img  src='{% static "assets/images/image.jpeg" %}'width="25" height="25"> Herrod Chandler</a></td>
-                                                 <td><span class="label label-warning">Medium</span></td>
-                                                 <td>2022/9/25</td>
-                                                 <td><a href="{% url 'message' %}" style = "color:#BEBEBE"><i class="fa fa-comments" aria-hidden="true"> 2022/9/10</i></a></td>
-                                             </tr>
-                                             <tr>
-                                                 <td><a href="{% url 'client' %}"><img  src='{% static "assets/images/image.jpeg"%}' width="25" height="25"> Rhona Davidson</a></td>
-                                                 <td data-value="1"><span class="label label-warning">Medium</span></td>
-                                                 <td>2022/9/19</td>
-                                                 <td><a href="{% url 'message' %}" style="color:#00A600"><i class="fa fa-comments" aria-hidden="true"> 3 new messages</i></a></td>
-                                             </tr>
-                                             <tr>
-                                                 <td><a href="{% url 'client' %}"><img  src='{% static "assets/images/image.jpeg"%}' width="25" height="25"> Colleen Hurst</a></td>
-                                                 <td><span class="label label-warning">Medium</span></td>
-                                                 <td>2022/10/1</td>
-                                                 <td><a href="{% url 'message' %}" style = "color:#BEBEBE"><i class="fa fa-comments" aria-hidden="true"> 2022/9/10</i></a></td>
-                                             </tr>
-                                             <tr>
-                                                 <td><a href="{% url 'client' %}"><img  src='{% static "assets/images/image.jpeg"%}' width="25" height="25"> Sonya Frost</a></td>
-                                                 <td><span class="label label-success">Low</span></td>
-                                                 <td>2022/10/11</td>
-                                                 <td><a href="{% url 'message' %}" style = "color:#BEBEBE"><i class="fa fa-comments" aria-hidden="true"> 2022/9/10</i></a></td>
-                                             </tr>
-                                             <tr>
-                                                 <td><a href="{% url 'client' %}"><img  src='{% static "assets/images/image.jpeg"%}' width="25" height="25"> Jena Gaines</a></td>
-                                                 <td><span class="label label-success">Low</span></td>
-                                                 <td>2022/10/2</td>
-                                                 <td><a href="{% url 'message' %}" style="color:#00A600"><i class="fa fa-comments" aria-hidden="true"> 2 new messages</i></a></td>
-                                             </tr>
-                                             <tr>
-                                                 <td><a href="{% url 'client' %}"><img src= '{% static "assets/images/image.jpeg"%}' width="25" height="25"> Quinn Flynn</a></td>
-                                                 <td><span class="label label-success">Low</span></td>
-                                                 <td>2022/9/15</td>
-                                                 <td><a href="{% url 'message' %}" style = "color:#BEBEBE"><i class="fa fa-comments" aria-hidden="true"> 2022/9/10</i></a></td>
-                                             </tr>
-                                             <tr>
-                                                 <td><a href="{% url 'client' %}"><img  src='{% static "assets/images/image.jpeg"%}' width="25" height="25"> Charde Marshall</a></td>
-                                                 <td><span class="label label-success">Low</span></td>
-                                                 <td>2022/9/10</td>
-                                                 <td><a href="{% url 'message' %}" style = "color:#BEBEBE"><i class="fa fa-comments" aria-hidden="true"> 2022/9/10</i></a></td>
-                                             </tr>
-<!--                                             <tr>-->
-<!--                                                 <td><img src="assets/images/image.jpeg" width="25" height="25"></td>-->
-<!--                                                 <td>Haley Kennedy</td>-->
-<!--                                                 <td>Nutritian A, and C</td>-->
-<!--                                                 <td><span class="label label-success">Low</span></td>-->
-<!--                                                 <td><a href="../icon/star-o"><i class="fa fa-star-o" aria-hidden="true"></i></a></td>-->
-<!--                                                 <td>78</td>-->
-<!--                                                 <td>2022/9/22</td>-->
-<!--                                                 <td style = "color:#BEBEBE">2022/9/10</td>-->
-<!--                                             </tr>-->
-                                         </tbody>
-                                     </table>
-                                     </div><!--table-responsive-->
-                                </div><!-- Panel body -->
-                            </div><!-- Panel -->
-                        </div><!-- Column one -->
-                    </div><!-- Main Wrapper -->
-                </div><!-- /Page Inner -->
-            </div><!-- /Page Content -->
-        </div><!-- /Page Container -->
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div><!-- /Page Header -->
+        <!-- Page Inner -->
+        <div class="page-inner">
+            <div class="page-title">
+                <h3 class="breadcrumb-header">Home Page</h3>
+            </div>
+            <div id="main-wrapper">
+                <!-- Column One -->
+                <div class="col-lg-12">
+                    <div class="panel panel-white">
+                        <div class="panel-heading clearfix">
+                            <h4 class="panel-title">Client List</h4>
+                            <!--<a  href="patient.html"><button>Details</button></a>-->
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table id="example" class="display table" style="width: 100%; cellspacing: 0;">
+                                    <thead>
+                                    <tr>
+                                        <th>Headphoto</th>
+                                        <th>Client</th>
+                                        <th>Priority</th>
+                                        <th>Next Appointment</th>
+                                        <th>New Messages</th>
+                                    </tr>
+                                    </thead>
+                                    <tfoot>
+                                    <tr>
+                                        <th>Headphoto</th>
+                                        <th>Client</th>
+                                        <th>Priority</th>
+                                        <th>Next Appointment</th>
+                                        <th>New Messages</th>
+                                    </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    {% for client in out_client %}
+                                        <tr>
+                                            {% for cli in client %}
+                                                {% if forloop.counter == 1 %}
+                                                    <td><a href="{% url 'client_cid' %}"><img
+                                                            src='{% static "assets/images/client01.png" %}' width="25"
+                                                            height="25">
+                                                    </a></td>
+                                                {% endif %}
+                                                {% if forloop.counter == 2 %}
+                                                    <td>{{ cli }}</td>
+                                                {% endif %}
+                                                {% if forloop.counter == 3 %}
+                                                    <td><span class="label label-danger">{{ cli }}</span></td>
+                                                {% endif %}
+                                                {% if forloop.counter == 4 %}
+                                                    <td>{{ cli }}</td>
+                                                {% endif %}
+                                                {% if forloop.counter == 5 %}
+                                                    <td><a href="{% url 'message' %}" style="color:#00A600"><i
+                                                            class="fa fa-comments"
+                                                            aria-hidden="true"> {{ cli }} new messages</i></a>
+                                                    </td>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </tr>
+                                    {% endfor %}
+
+                                    <!--                                             <tr>-->
+                                    <!--                                                 <td><img src="assets/images/image.jpeg" width="25" height="25"></td>-->
+                                    <!--                                                 <td>Haley Kennedy</td>-->
+                                    <!--                                                 <td>Nutritian A, and C</td>-->
+                                    <!--                                                 <td><span class="label label-success">Low</span></td>-->
+                                    <!--                                                 <td><a href="../icon/star-o"><i class="fa fa-star-o" aria-hidden="true"></i></a></td>-->
+                                    <!--                                                 <td>78</td>-->
+                                    <!--                                                 <td>2022/9/22</td>-->
+                                    <!--                                                 <td style = "color:#BEBEBE">2022/9/10</td>-->
+                                    <!--                                             </tr>-->
+                                    </tbody>
+                                </table>
+                            </div><!--table-responsive-->
+                        </div><!-- Panel body -->
+                    </div><!-- Panel -->
+                </div><!-- Column one -->
+            </div><!-- Main Wrapper -->
+        </div><!-- /Page Inner -->
+    </div><!-- /Page Content -->
+</div><!-- /Page Container -->
 
 
-        <!-- Javascripts -->
-        <script src= '{% static "assets/plugins/jquery/jquery-3.1.0.min.js"%}'></script>
-        <script src= '{% static "assets/plugins/bootstrap/js/bootstrap.min.js"%}'></script>
-        <script src= '{% static "assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"%}'></script>
-        <script src= '{% static "assets/plugins/uniform/js/jquery.uniform.standalone.js"%}'></script>
-        <script src= '{% static "assets/plugins/switchery/switchery.min.js"%}'></script>
-        <script src= '{% static "assets/plugins/datatables/js/jquery.datatables.min.js"%}'></script>
-        <script src= '{% static "assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"%}'></script>
-        <script src= '{% static "assets/js/ecaps.min.js"%}'></script>
-        <script src= '{% static "assets/js/pages/table-data.js"%}'></script>
+<!-- Javascripts -->
+<script src='{% static "assets/plugins/jquery/jquery-3.1.0.min.js" %}'></script>
+<script src='{% static "assets/plugins/bootstrap/js/bootstrap.min.js" %}'></script>
+<script src='{% static "assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" %}'></script>
+<script src='{% static "assets/plugins/uniform/js/jquery.uniform.standalone.js" %}'></script>
+<script src='{% static "assets/plugins/switchery/switchery.min.js" %}'></script>
+<script src='{% static "assets/plugins/datatables/js/jquery.datatables.min.js" %}'></script>
+<script src='{% static "assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" %}'></script>
+<script src='{% static "assets/js/ecaps.min.js" %}'></script>
+<script src='{% static "assets/js/pages/table-data.js" %}'></script>
 
-    </body>
+</body>
 </html>
