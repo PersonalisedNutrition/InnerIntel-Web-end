@@ -45,7 +45,7 @@ def index(request):
 
 # check the pwd by email
 def check_pwd(input_email, input_pwd):
-    user = database.child('Users').order_by_child('email').equal_to(input_email).get()
+    user = database.child('Nutritionist').order_by_child('email').equal_to(input_email).get()
     if user.val():
         # print(list(user.val().items())[0][1].get('name'))
         return list(user.val().items())[0][1].get('name'), list(user.val().items())[0][1].get('email'), \
@@ -111,23 +111,23 @@ def message(request):
 
 
 def update_client_setting(email, first_name, last_name, phone, password):
-    user = database.child('Users').order_by_child('email').equal_to(email).get()
+    user = database.child('Nutritionist').order_by_child('email').equal_to(email).get()
     nid = list(user.val().items())[0][1].get('nid')
     print(nid)
     if user.val():
-        database.child('Users').child(nid).update(
-            {"firstname": first_name, 'lastname': last_name, 'phone': phone, 'password': password})
+        database.child('Nutritionist').child(nid).update(
+            {"first_name": first_name, 'last_name': last_name, 'phone': phone, 'password': password})
         return True
     else:
         return False
 
 
 def find_information(email):
-    user = database.child('Users').order_by_child('email').equal_to(email).get()
-    firstname = list(user.val().items())[0][1].get('firstname')
-    lastname = list(user.val().items())[0][1].get('lastname')
+    user = database.child('Nutritionist').order_by_child('email').equal_to(email).get()
+    firstname = list(user.val().items())[0][1].get('first_name')
+    lastname = list(user.val().items())[0][1].get('last_name')
     phone = list(user.val().items())[0][1].get('phone')
-    password = list(user.val().items())[0][1].get('password')
+    password = list(user.val().items())[0][1].get('pwd')
     email = list(user.val().items())[0][1].get('email')
     return {'email': email, 'first_name': firstname, 'last_name': lastname, 'phone': phone, 'password': password}
 
