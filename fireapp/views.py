@@ -106,8 +106,13 @@ def get_client_data(cid):
     client_weight = get_value(client_data, 'weight')
     client_dob = get_value(client_data, 'dob')
 
-    client_medical_con = get_value(client_data, 'medical_conditions').split(",")
-    client_medication = get_value(client_data, 'medication').split(",")
+    # make the data reading code more robust with if
+    client_medical_con = get_value(client_data, 'medical_conditions')
+    if client_medical_con:
+        client_medical_con = client_medical_con.split(",")
+    client_medication = get_value(client_data, 'medication')
+    if client_medication:
+        client_medication = client_medication.split(",")
     return client_first_name, client_last_name, client_gender, \
            client_weight, client_height, client_medication, client_medical_con, client_dob
 
@@ -132,6 +137,7 @@ def get_age(birthday):
 
 def client(request):
 
+    # get cid of client and fetch the data of client
     cid = request.GET.get('cid')
     client_first_name, client_last_name, client_gender, \
     client_weight, client_height, client_medication, client_medical_con, client_dob \
