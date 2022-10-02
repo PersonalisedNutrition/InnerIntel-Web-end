@@ -109,19 +109,22 @@ def get_client_data(cid):
 
 
 def client(request):
+    cid = request.GET.get('cid')
+    # print(cid)
     if request.method == 'POST':
         client_first_name, client_last_name, client_gender, \
         client_weight, client_height, client_medication, client_medical_con \
-            = get_client_data(request.POST.get('cid'))
+            = get_client_data(cid)
         username = request.get_signed_cookie('username')
         return render(request, 'client.html', {'username': username, 'client_first_name': client_first_name,
                                                'client_last_name': client_last_name, 'client_gender': client_gender,
-                                                'client_weight': client_weight, 'client_height': client_height,
-                                               'client_medication': client_medication, 'client_medical_con': client_medical_con})
+                                               'client_weight': client_weight, 'client_height': client_height,
+                                               'client_medication': client_medication,
+                                               'client_medical_con': client_medical_con})
 
     else:
         username = request.get_signed_cookie('username')
-        return render(request, 'client.html', {'username': username, })
+        return render(request, 'client.html', {'username': username})
 
 
 def client_data(request):

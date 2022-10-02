@@ -169,7 +169,7 @@
                                         <tr>
                                             {% for cli in client %}
                                                 {% if forloop.counter == 1 %}
-                                                    <td><a href="{% url 'client_cid' %}"><img
+                                                    <td><a href="{% url 'client_cid' %}?cid={{ cli }}"><img
                                                             src='{% static "assets/images/client01.png" %}' width="25"
                                                             height="25">
                                                     </a></td>
