@@ -20,32 +20,29 @@ auth = firebase.auth()
 database = firebase.database()
 
 
+def get_client_list(clients_list):
+    print(clients_list)
+    out_client = []
+    for cli in clients_list:
+        # print(cli)
+        new_client = []
+        for k, v in cli.items():
+            new_client.append(v)
+        change = new_client[2]
+        new_client[2] = new_client[1]
+        new_client[1] = change
+        out_client.append(new_client)
+        # print(out_client)
+    return out_client
+
+
 def index(request):
-    logs_dataset = database.child('logs').get()
-    sleepLogs_dataset = database.child('sleepLogs').get()
-
-    # update数据
-    # test = database.child('logs').child('0').update({"table_id": "10test"})
-    # print(test.val())
-
-    # print(logs_dataset.val()[0])
-    # print(sleepLogs_dataset.val())
-
-    context = {
-        # 'first_name': first_name,
-        # 'last_name': last_name,
-        # 'gender': gender,
-        # 'ip_address': ip_address
-    }
-
-    # =============== get client info from cookies==============
-    # get client list from cookies
-    client_list = request.get_signed_cookie('client_list')
-    # get the number of clients subscribing the current nutritionist
-    num_client = len(client_list)
-
-    username = request.get_signed_cookie('username')
-    return render(request, 'index.html', {'username': username})
+    if request.method == "POST":
+        pass
+    else:
+        clients_list = request.get_signed_cookie('client_list')
+        out_client = get_client_list(clients_list)  # need update
+        return render(request, 'index.html', {'out_client': out_client})
 
 
 # manipulate database
@@ -54,7 +51,7 @@ def index(request):
 def check_pwd(input_email, input_pwd):
     user = database.child('Nutritionist').order_by_child('email').equal_to(input_email).get()
     if user.val():
-        print(list(user.val().items())[0][1].get('clients_list'))
+        # print(list(user.val().items())[0][1].get('clients_list'))
         return list(user.val().items())[0][1].get('name'), list(user.val().items())[0][1].get('email'), \
                list(user.val().items())[0][1].get('clients_list'), \
                list(user.val().items())[0][1].get('pwd') == input_pwd
@@ -76,7 +73,8 @@ def login(request):
         if state:
             # put the login username to cookies
             dic = {'username': username, 'email': email, 'client_list': client_list}
-            response = render(request, "index.html", dic)
+            out_client = get_client_list(client_list)  # need update
+            response = render(request, "index.html", {'out_client': out_client})
             response.set_signed_cookie("username", username)
             response.set_signed_cookie("email", email)
             response.set_signed_cookie("client_list", client_list)
