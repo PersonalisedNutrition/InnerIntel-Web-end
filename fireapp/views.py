@@ -47,8 +47,9 @@ def index(request):
 def check_pwd(input_email, input_pwd):
     user = database.child('Nutritionist').order_by_child('email').equal_to(input_email).get()
     if user.val():
-        # print(list(user.val().items())[0][1].get('name'))
+        print(list(user.val().items())[0][1].get('clients_list'))
         return list(user.val().items())[0][1].get('name'), list(user.val().items())[0][1].get('email'), \
+               list(user.val().items())[0][1].get('clients_list'), \
                list(user.val().items())[0][1].get('pwd') == input_pwd
     else:
         return False
@@ -63,13 +64,14 @@ def login(request):
         login_email = request.POST.get('input_email')
         login_pwd = request.POST.get('input_pwd')
         # check if the email and pwd can match the Database
-        username, email, state = check_pwd(login_email, login_pwd)
+        username, email, client_list, state = check_pwd(login_email, login_pwd)
         if state:
             # put the login username to cookies
-            dic = {'username': username, 'email': email}
+            dic = {'username': username, 'email': email, 'client_list': client_list}
             response = render(request, "index.html", dic)
             response.set_signed_cookie("username", username)
             response.set_signed_cookie("email", email)
+            response.set_signed_cookie("client_list", client_list)
             return response
         # if the email and pwd can not match
         else:
