@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import render, redirect
 import pyrebase
 
@@ -74,7 +76,7 @@ def login(request):
             # put the login username to cookies
             dic = {'username': username, 'email': email, 'client_list': client_list}
             out_client = get_client_list(client_list)  # need update
-            response = render(request, "index.html", {'out_client': out_client})
+            response = render(request, "index.html", {'out_client': out_client,'username': username })
             response.set_signed_cookie("username", username)
             response.set_signed_cookie("email", email)
             response.set_signed_cookie("client_list", client_list)
@@ -102,24 +104,45 @@ def get_client_data(cid):
     client_gender = get_value(client_data, 'gender')
     client_height = get_value(client_data, 'height')
     client_weight = get_value(client_data, 'weight')
+    client_dob = get_value(client_data, 'dob')
 
     client_medical_con = get_value(client_data, 'medical_conditions').split(",")
     client_medication = get_value(client_data, 'medication').split(",")
     return client_first_name, client_last_name, client_gender, \
-           client_weight, client_height, client_medication, client_medical_con
+           client_weight, client_height, client_medication, client_medical_con, client_dob
 
+
+def get_age(birthday):
+    # This function returns the age as of that date based on the 8-digit date of birth data entered
+    today = str(datetime.datetime.now().strftime('%Y-%m-%d')).split("-")
+    # Fetch the year, month and day data of the system for the day as a list [year, month, day]
+    n_monthandday = today[1] + today[2]
+    # Linking the months and days together
+    n_year = today[0]
+    # Separate current year
+    r_monthandday = birthday[4:]
+    # Fetch the month and day of the entered date
+    r_year = birthday[:4]
+    # Fetch the year of the entered date
+    if (int(n_monthandday) >= int(r_monthandday)):
+        r_age = int(n_year) - int(r_year)
+    else:
+        r_age = int(n_year) - int(r_year) - 1
+    return r_age
 
 def client(request):
 
     cid = request.GET.get('cid')
     client_first_name, client_last_name, client_gender, \
-    client_weight, client_height, client_medication, client_medical_con \
+    client_weight, client_height, client_medication, client_medical_con, client_dob \
         = get_client_data(cid)
+    client_age = get_age(client_dob)
     username = request.get_signed_cookie('username')
     return render(request, 'client.html', {'username': username, 'client_first_name': client_first_name,
                                            'client_last_name': client_last_name, 'client_gender': client_gender,
                                             'client_weight': client_weight, 'client_height': client_height,
-                                           'client_medication': client_medication, 'client_medical_con': client_medical_con})
+                                           'client_medication': client_medication, 'client_medical_con': client_medical_con,
+                                           'client_age':client_age})
 
 
 
