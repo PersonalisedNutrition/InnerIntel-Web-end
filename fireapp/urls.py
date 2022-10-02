@@ -16,4 +16,6 @@ urlpatterns = [
     path('login/user/', views.login, name='login_user'),
     path('setting/user/', views.setting, name='setting_user'),
 
+    # urls in Index Page
+    path('index/client_cid/', views.client, name='client_cid'),
 ]

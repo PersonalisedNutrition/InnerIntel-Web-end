@@ -146,27 +146,29 @@
                                         </div>
 
                                         <div class="col-lg-2 col-md-2">
-                                            <h4>Ric Curnow</h4>
+                                            <h4>{{ client_first_name }}&nbsp;{{ client_last_name }}</h4>
                                             <p>58</p>
-                                            <p>Male</p>
+                                            <p>{{ client_gender }}</p>
                                         </div>
 
                                         <div class="col-lg-1 col-md-1">
-                                            <p>185cm</p>
-                                            <p>90kg</p>
+                                            <p>{{ client_height }}cm</p>
+                                            <p>{{ client_weight }}kg</p>
                                         </div>
 
                                         <div class="col-lg-2 col-md-2">
                                             <ul><h4>Disease</h4>
-                                                <li>glaucoma</li>
-                                                <li>ADHD</li>
+                                                {% for disease in client_medical_con%}
+                                                    <li>{{ disease }}</li>
+                                                {% endfor %}
                                             </ul>
                                         </div>
 
                                         <div class="col-lg-3 col-md-3">
                                             <ul><h4>Medication History</h4>
-                                                <li>medicine A</li>
-                                                <li>medicine B</li>
+                                                {% for medication in client_medication%}
+                                                    <li>{{ medication }}</li>
+                                                {% endfor %}
                                             </ul>
                                         </div>
 

@@ -37,6 +37,13 @@ def index(request):
         # 'gender': gender,
         # 'ip_address': ip_address
     }
+
+    # =============== get client info from cookies==============
+    # get client list from cookies
+    client_list = request.get_signed_cookie('client_list')
+    # get the number of clients subscribing the current nutritionist
+    num_client = len(client_list)
+
     username = request.get_signed_cookie('username')
     return render(request, 'index.html', {'username': username})
 
@@ -51,6 +58,7 @@ def check_pwd(input_email, input_pwd):
         return list(user.val().items())[0][1].get('name'), list(user.val().items())[0][1].get('email'), \
                list(user.val().items())[0][1].get('clients_list'), \
                list(user.val().items())[0][1].get('pwd') == input_pwd
+
     else:
         return False
 
@@ -82,9 +90,40 @@ def login(request):
         return render(request, "login.html", {'error_msg': error_msg})
 
 
+# get the value of input key in an OrderedDict
+def get_value(ordered_dict, key):
+    return list(ordered_dict.val().items())[0][1].get(key)
+
+
+# get client data from database by cid
+def get_client_data(cid):
+    client_data = database.child('client').child(cid).get()
+    client_first_name = get_value(client_data, 'first_name')
+    client_last_name = get_value(client_data, 'last_name')
+    client_gender = get_value(client_data, 'gender')
+    client_height = get_value(client_data, 'height')
+    client_weight = get_value(client_data, 'weight')
+
+    client_medical_con = get_value(client_data, 'medical_conditions').split(",")
+    client_medication = get_value(client_data, 'medication').split(",")
+    return client_first_name, client_last_name, client_gender, \
+           client_weight, client_height, client_medication, client_medical_con
+
+
 def client(request):
-    username = request.get_signed_cookie('username')
-    return render(request, 'client.html', {'username': username})
+    if request.method == 'POST':
+        client_first_name, client_last_name, client_gender, \
+        client_weight, client_height, client_medication, client_medical_con \
+            = get_client_data(request.POST.get('cid'))
+        username = request.get_signed_cookie('username')
+        return render(request, 'client.html', {'username': username, 'client_first_name': client_first_name,
+                                               'client_last_name': client_last_name, 'client_gender': client_gender,
+                                                'client_weight': client_weight, 'client_height': client_height,
+                                               'client_medication': client_medication, 'client_medical_con': client_medical_con})
+
+    else:
+        username = request.get_signed_cookie('username')
+        return render(request, 'client.html', {'username': username, })
 
 
 def client_data(request):
