@@ -42,8 +42,10 @@ def index(request):
     if request.method == "POST":
         pass
     else:
-        clients_list = request.get_signed_cookie('client_list')
-        out_client = get_client_list(clients_list)  # need update
+        email = request.get_signed_cookie('email')
+        user = database.child('Nutritionist').order_by_child('email').equal_to(email).get()
+        clients_list = list(user.val().items())[0][1].get('clients_list')
+        out_client = get_client_list(clients_list)
         return render(request, 'index.html', {'out_client': out_client})
 
 
@@ -75,8 +77,8 @@ def login(request):
         if state:
             # put the login username to cookies
             dic = {'username': username, 'email': email, 'client_list': client_list}
-            out_client = get_client_list(client_list)  # need update
-            response = render(request, "index.html", {'out_client': out_client,'username': username })
+            out_client = get_client_list(client_list)
+            response = render(request, "index.html", {'out_client': out_client, 'username': username})
             response.set_signed_cookie("username", username)
             response.set_signed_cookie("email", email)
             response.set_signed_cookie("client_list", client_list)
@@ -135,8 +137,8 @@ def get_age(birthday):
         r_age = int(n_year) - int(r_year) - 1
     return r_age
 
-def client(request):
 
+def client(request):
     # get cid of client and fetch the data of client
     cid = request.GET.get('cid')
     client_first_name, client_last_name, client_gender, \
@@ -146,10 +148,10 @@ def client(request):
     username = request.get_signed_cookie('username')
     return render(request, 'client.html', {'username': username, 'client_first_name': client_first_name,
                                            'client_last_name': client_last_name, 'client_gender': client_gender,
-                                            'client_weight': client_weight, 'client_height': client_height,
-                                           'client_medication': client_medication, 'client_medical_con': client_medical_con,
-                                           'client_age':client_age})
-
+                                           'client_weight': client_weight, 'client_height': client_height,
+                                           'client_medication': client_medication,
+                                           'client_medical_con': client_medical_con,
+                                           'client_age': client_age})
 
 
 def client_data(request):
