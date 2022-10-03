@@ -29,6 +29,10 @@
         <link href='{% static "assets/css/ecaps.min.css"%}' rel="stylesheet">
         <link href='{% static "assets/css/custom.css"%}' rel="stylesheet">
 
+        <!-- Handsontable -->
+        <script src="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css" rel="stylesheet">
+
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -135,6 +139,23 @@
                         <div class="col-lg-12">
                             <div class="panel panel-white" style="height: 80vh;">
                                 <div class="panel-body">
+                                    <div id="exampletable"></div>
+                                    <script type="text/javascript">
+                                        const data = [
+                                            ['', 'Tesla', 'Volvo', 'Toyota', 'Ford'],
+                                            ['2019', 10, 11, 12, 13],
+                                            ['2020', 20, 11, 14, 13],
+                                            ['2021', 30, 15, 12, 13]
+                                        ];
+
+                                        const container = document.getElementById('exampletable');
+                                        const hot = new Handsontable(container, {
+                                            data: data,
+                                            rowHeaders: true,
+                                            colHeaders: true,
+                                            licenseKey: 'non-commercial-and-evaluation'// for non-commercial use only
+                                        });
+                                    </script>
                                     <div role="tabpanel">
                                         <!-- Nav tabs -->
                                         <ul class="nav nav-tabs" role="tablist">

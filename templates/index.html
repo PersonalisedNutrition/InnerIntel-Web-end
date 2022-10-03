@@ -15,7 +15,7 @@
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <link rel="stylesheet" href='{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}'>
+    <link rel="stylesheet" href='{% static "assets/plugins/bootstrap/css/bootstrap.min.css" %}'>
     <link rel="stylesheet" href='{% static "assets/plugins/font-awesome/css/font-awesome.min.css" %}'>
     <link rel="stylesheet" href='{% static "assets/plugins/icomoon/style.css" %}'>
     <link rel="stylesheet" href='{% static "assets/plugins/uniform/css/default.css" %}'>
@@ -189,7 +189,7 @@
                                                     {% endif %}
                                                 {% endif %}
                                                 {% if forloop.counter == 4 %}
-                                                    <td>{{ cli }}</td>
+                                                    <td contenteditable="true"> {{ cli }}</td>
                                                 {% endif %}
                                                 {% if forloop.counter == 5 %}
                                                     <td><a href="{% url 'message' %}" style="color:#00A600"><i
@@ -208,7 +208,7 @@
                                     <!--                                                 <td><span class="label label-success">Low</span></td>-->
                                     <!--                                                 <td><a href="../icon/star-o"><i class="fa fa-star-o" aria-hidden="true"></i></a></td>-->
                                     <!--                                                 <td>78</td>-->
-                                    <!--                                                 <td>2022/9/22</td>-->
+                                    <!--                                                 <td><i class="fa fa-edit" aria-hidden="true"></i>2022/9/22</td>-->
                                     <!--                                                 <td style = "color:#BEBEBE">2022/9/10</td>-->
                                     <!--                                             </tr>-->
                                     </tbody>
