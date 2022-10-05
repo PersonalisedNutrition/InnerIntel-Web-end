@@ -57,12 +57,14 @@ const hot = new Handsontable(container, {
 //        "Date"
         {
             data: 1,
-            type: "date"
+            type: "date",
+            correctFormat: true
         },
 //        "Time"
         {
             data: 2,
-            type: "time"
+            type: "time",
+            correctFormat: true
         },
 //        "Meal type"
         {
