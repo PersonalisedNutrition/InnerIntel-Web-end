@@ -82,9 +82,9 @@
                         <input type="text" name="search" class="form-control search-input"
                                placeholder="Type something...">
                         <span class="input-group-btn">
-                                    <button class="btn btn-default" id="close-search" type="button"><i
-                                            class="icon-close"></i></button>
-                                </span>
+                            <button class="btn btn-default" id="close-search" type="button"><i
+                                    class="icon-close"></i></button>
+                        </span>
                     </div>
                 </form>
             </div>
@@ -169,7 +169,7 @@
                                         <tr>
                                             {% for cli in client %}
                                                 {% if forloop.counter == 1 %}
-                                                    <td width="30"><a href="{% url 'client_cid' %}?cid={{ cli }}"><img
+                                                    <td width="30" align="center"><a href="{% url 'client_cid' %}?cid={{ cli }}"><img
                                                             src='{% static "assets/images/client01.png" %}' width="25"
                                                             height="25">
                                                     </a></td>
