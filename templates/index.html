@@ -45,6 +45,7 @@
         .paginate_button:hover{
             cursor: pointer;
         }
+
     </style>
 </head>
 <body>
@@ -189,13 +190,13 @@
                                                 {% endif %}
                                                 {% if forloop.counter == 3 %}
                                                     {% if cli == 'high' %}
-                                                        <td><span class="label label-danger">{{ cli }}</span></td>
-                                                    {% endif %}
-                                                    {% if cli == 'low' %}
-                                                        <td><span class="label label-success">{{ cli }}</span></td>
+                                                        <td><font style="color:transparent">3</font><span class="label label-danger">{{ cli }}</span></td>
                                                     {% endif %}
                                                     {% if cli == 'mid' %}
-                                                        <td><span class="label label-warning">{{ cli }}</span></td>
+                                                        <td><font style="color:transparent">2</font><span class="label label-warning">{{ cli }}</span></td>
+                                                    {% endif %}
+                                                    {% if cli == 'low' %}
+                                                        <td><font style="color:transparent">1</font><span class="label label-success">{{ cli }}</span></td>
                                                     {% endif %}
                                                 {% endif %}
                                                 {% if forloop.counter == 4 %}
