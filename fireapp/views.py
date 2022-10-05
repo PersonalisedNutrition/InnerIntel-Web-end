@@ -42,11 +42,12 @@ def index(request):
     if request.method == "POST":
         pass
     else:
+        username = request.get_signed_cookie("username")
         email = request.get_signed_cookie('email')
         user = database.child('Nutritionist').order_by_child('email').equal_to(email).get()
         clients_list = list(user.val().items())[0][1].get('clients_list')
         out_client = get_client_list(clients_list)
-        return render(request, 'index.html', {'out_client': out_client})
+        return render(request, 'index.html', {'out_client': out_client,"username":username})
 
 
 # manipulate database
@@ -56,7 +57,9 @@ def check_pwd(input_email, input_pwd):
     user = database.child('Nutritionist').order_by_child('email').equal_to(input_email).get()
     if user.val():
         # print(list(user.val().items())[0][1].get('clients_list'))
-        return list(user.val().items())[0][1].get('name'), list(user.val().items())[0][1].get('email'), \
+        return list(user.val().items())[0][1].get('first_name'), \
+               list(user.val().items())[0][1].get('last_name'),\
+               list(user.val().items())[0][1].get('email'), \
                list(user.val().items())[0][1].get('clients_list'), \
                list(user.val().items())[0][1].get('pwd') == input_pwd
 
@@ -73,9 +76,10 @@ def login(request):
         login_email = request.POST.get('input_email')
         login_pwd = request.POST.get('input_pwd')
         # check if the email and pwd can match the Database
-        username, email, client_list, state = check_pwd(login_email, login_pwd)
+        first_name, last_name, email, client_list, state = check_pwd(login_email, login_pwd)
         if state:
             # put the login username to cookies
+            username = first_name+" "+last_name
             dic = {'username': username, 'email': email, 'client_list': client_list}
             out_client = get_client_list(client_list)
             response = render(request, "index.html", {'out_client': out_client, 'username': username})
@@ -202,6 +206,7 @@ def find_information(email):
 
 
 def setting(request):
+    username = request.get_signed_cookie('username')
     email = request.get_signed_cookie('email')
     if request.method == "POST":
         first_name = request.POST.get('firstname')
@@ -212,12 +217,15 @@ def setting(request):
             find_info = find_information(email)
             msg = 'Update Successful!'
             find_info['msg'] = msg
+            find_info['username'] = first_name+" "+last_name
             response = render(request, "setting.html", find_info)
             response.set_signed_cookie("email", email)
+            response.set_signed_cookie("username",find_info['username'])
             return response
         else:
             msg = 'Failed to update'
-            return render(request, "setting.html", {'msg': msg})
+            return render(request, "setting.html", {'msg': msg, 'username': username})
     else:
         find_info = find_information(email)
+        find_info['username'] = username
         return render(request, 'setting.html', find_info)

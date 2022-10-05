@@ -64,7 +64,7 @@
                     </li>
                     <li>
                         <a href="{% url 'setting' %}">
-                            <i class="menu-icon icon-star"></i><span>Setting</span>
+                            <i class="menu-icon icon-cog"></i><span>Setting</span>
                         </a>
                     </li>
                 </ul>
@@ -155,21 +155,21 @@
                                         <th>New Messages</th>
                                     </tr>
                                     </thead>
-                                    <tfoot>
-                                    <tr>
-                                        <th>Headphoto</th>
-                                        <th>Client</th>
-                                        <th>Priority</th>
-                                        <th>Next Appointment</th>
-                                        <th>New Messages</th>
-                                    </tr>
-                                    </tfoot>
+{#                                    <tfoot>#}
+{#                                    <tr>#}
+{#                                        <th>Headphoto</th>#}
+{#                                        <th>Client</th>#}
+{#                                        <th>Priority</th>#}
+{#                                        <th>Next Appointment</th>#}
+{#                                        <th>New Messages</th>#}
+{#                                    </tr>#}
+{#                                    </tfoot>#}
                                     <tbody>
                                     {% for client in out_client %}
                                         <tr>
                                             {% for cli in client %}
                                                 {% if forloop.counter == 1 %}
-                                                    <td><a href="{% url 'client_cid' %}?cid={{ cli }}"><img
+                                                    <td width="30"><a href="{% url 'client_cid' %}?cid={{ cli }}"><img
                                                             src='{% static "assets/images/client01.png" %}' width="25"
                                                             height="25">
                                                     </a></td>

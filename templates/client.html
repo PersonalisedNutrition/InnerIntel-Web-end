@@ -71,7 +71,7 @@
                             </li>
                             <li>
                                 <a href="{% url 'setting' %}">
-                                    <i class="menu-icon icon-star"></i><span>Setting</span>
+                                    <i class="menu-icon icon-cog"></i><span>Setting</span>
                                 </a>
                             </li>
                         </ul>
@@ -147,13 +147,13 @@
 
                                         <div class="col-lg-2 col-md-2">
                                             <h4>{{ client_first_name }}&nbsp;{{ client_last_name }}</h4>
-                                            <p>{{ client_age }}</p>
-                                            <p>{{ client_gender }}</p>
+                                            <p>Age &nbsp&nbsp {{ client_age }}</p>
+                                            <p>Gender &nbsp&nbsp {{ client_gender }}</p>
                                         </div>
 
                                         <div class="col-lg-1 col-md-1">
-                                            <p>{{ client_height }}cm</p>
-                                            <p>{{ client_weight }}kg</p>
+                                            <p>Height &nbsp&nbsp {{ client_height }}cm</p>
+                                            <p>Weight &nbsp&nbsp {{ client_weight }}kg</p>
                                         </div>
 
                                         <div class="col-lg-2 col-md-2">
