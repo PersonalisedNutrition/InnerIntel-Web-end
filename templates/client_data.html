@@ -130,25 +130,26 @@
                 <!-- Page Inner -->
                 <div class="page-inner">
                     <div class="page-title">
-                        <h3 class="breadcrumb-header">Client : Ric Curnow </h3>
+                        <div class="pull-left">
+                            <h3 class="breadcrumb-header">Client : Ric Curnow </h3>
+                        </div>
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-default">Save Modification</button>
+                        </div>
                     </div>
                     <div id="main-wrapper">
                         <!-- Colum One -->
 
                         <!-- Colum Two -->
                         <div class="col-lg-12">
-                            <div class="panel panel-white" style="height: 80vh;">
+                            <div class="panel panel-white" style="height: 80vh;overflow:auto;">
                                 <div class="panel-body">
-                                    <script>
-                                        function myFunction()
-                                        {
-                                            alert("你好，我是一个警告框！");
-                                        }
+                                    <script type="text/javascript">
+                                        var logs = {{ logs|safe }};
+                                        console.log('--- reading data ---');
+                                        console.log(logs);
                                     </script>
-                                    <div class="pull-right">
-                                        <button type="button" class="btn btn-default" onclick="myFunction()">Save Modification</button>
-                                        <br><br>
-                                    </div>
+
                                     <!-- log table -->
                                     <div id="log-table" style="height:auto;width:100%;overflow:auto;"></div>
                                     <div id="example-table" style="height:auto;width:100%;overflow:auto;"></div>
