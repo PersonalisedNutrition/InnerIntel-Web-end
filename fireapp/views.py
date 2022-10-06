@@ -245,8 +245,8 @@ def get_client_logs(cid):
 
 
 def get_logs_data(cid):
-    logs_data = database.child('LOGS').order_by_child('cid').equal_to(cid).get()
-    logs_ad_hoc =[]
+    logs_data = get_client_logs(cid)
+    logs_ad_hoc = []
     logs_cid = []
     logs_drink_input = []
     logs_food_break_out=[]
