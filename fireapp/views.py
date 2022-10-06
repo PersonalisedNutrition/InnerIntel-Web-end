@@ -342,19 +342,19 @@ def logs(request):
     logs_location, logs_meal_type, logs_mental_state_mood, logs_photograph, logs_portion_measurement_unit, logs_portion_size, logs_reflux_daily, \
     logs_reflux_incidental, logs_sleep_notes, logs_sleep_quality, logs_sleep_quantity, logs_time, logs_vomiting_daily, logs_vomiting_incidental, \
     logs_weight = get_logs_data(cid)
-    return render(request,'logs.html',{'ad_hoc':logs_ad_hoc,'cid':logs_cid,'drink_input':logs_drink_input,'food_break_out':logs_food_break_out,
-                                       'food_input':logs_food_input,'cooking_fats_added_denominator': logs_cooking_fats_added_denominator,
-                                       'cooking_fats_added_numerator':logs_cooking_fats_added_numerator, 'cooking_method':logs_cooking_method,
-                                       'date':logs_date, 'discomfort_daily':logs_discomfort_daily,'discomfort_incidental':logs_discomfort_incidental,
-                                       'drink_size_numerator':logs_drink_size_numerator, 'drink_input_breakout':logs_drink_input_breakout,
-                                       'drink_size_denominator':logs_drink_size_denominator, 'drink_tags_breakout':logs_drink_tags_breakout,
-                                       'exercise_duration':logs_exercise_duration,'exercise_type':logs_exercise_type, 'faeces':logs_faeces,
-                                       'flag':logs_flag,'flatulence_daily':logs_flatulence_daily, 'flatulence_incidental':logs_flatulence_incidental,
-                                       'food_tags_breakout':logs_food_tags_breakout, 'lid':logs_lid,'location':logs_location, 'meal_type':logs_meal_type,
-                                       'mental_state_mood':logs_mental_state_mood, 'photograph':logs_photograph,'portion_measurement_unit':logs_portion_measurement_unit,
-                                       'portion_size':logs_portion_size, 'reflux_daily':logs_reflux_daily, 'reflux_incidental':logs_reflux_incidental,
-                                       'sleep_notes':logs_sleep_notes, 'sleep_quality':logs_sleep_quality,'sleep_quantity': logs_sleep_quantity,
-                                       'time':logs_time, 'vomiting_daily':logs_vomiting_daily, 'vomiting_incidental':logs_vomiting_incidental,
-                                       'weight':logs_weight})
+    return render(request,'client_data.html',{'ad_hoc':logs_ad_hoc,'cid':logs_cid,'drink_input':logs_drink_input,'food_break_out':logs_food_break_out,
+                                              'food_input':logs_food_input,'cooking_fats_added_denominator': logs_cooking_fats_added_denominator,
+                                              'cooking_fats_added_numerator':logs_cooking_fats_added_numerator, 'cooking_method':logs_cooking_method,
+                                              'date':logs_date, 'discomfort_daily':logs_discomfort_daily,'discomfort_incidental':logs_discomfort_incidental,
+                                              'drink_size_numerator':logs_drink_size_numerator, 'drink_input_breakout':logs_drink_input_breakout,
+                                              'drink_size_denominator':logs_drink_size_denominator, 'drink_tags_breakout':logs_drink_tags_breakout,
+                                              'exercise_duration':logs_exercise_duration,'exercise_type':logs_exercise_type, 'faeces':logs_faeces,
+                                              'flag':logs_flag,'flatulence_daily':logs_flatulence_daily, 'flatulence_incidental':logs_flatulence_incidental,
+                                              'food_tags_breakout':logs_food_tags_breakout, 'lid':logs_lid,'location':logs_location, 'meal_type':logs_meal_type,
+                                              'mental_state_mood':logs_mental_state_mood, 'photograph':logs_photograph,'portion_measurement_unit':logs_portion_measurement_unit,
+                                              'portion_size':logs_portion_size, 'reflux_daily':logs_reflux_daily, 'reflux_incidental':logs_reflux_incidental,
+                                              'sleep_notes':logs_sleep_notes, 'sleep_quality':logs_sleep_quality,'sleep_quantity': logs_sleep_quantity,
+                                              'time':logs_time, 'vomiting_daily':logs_vomiting_daily, 'vomiting_incidental':logs_vomiting_incidental,
+                                              'weight':logs_weight})
 
 
