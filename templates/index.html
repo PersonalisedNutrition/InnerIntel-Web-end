@@ -200,7 +200,7 @@
                                                     {% endif %}
                                                 {% endif %}
                                                 {% if forloop.counter == 4 %}
-                                                    <td contenteditable="true"> {{ cli }}</td>
+                                                    <td><input type="date" value="{{ cli }}"/></td>
                                                 {% endif %}
                                                 {% if forloop.counter == 5 %}
                                                     <td><a href="{% url 'message' %}" style="color:#00A600"><i

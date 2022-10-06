@@ -30,6 +30,9 @@ def get_client_list(clients_list):
         new_client = []
         for k, v in cli.items():
             new_client.append(v)
+        # correct time format
+        new_client[3] = new_client[3].replace('/', '-')
+        # swap
         change = new_client[2]
         new_client[2] = new_client[1]
         new_client[1] = change
