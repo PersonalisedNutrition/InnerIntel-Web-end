@@ -232,3 +232,15 @@ def setting(request):
         find_info = find_information(email)
         find_info['username'] = username
         return render(request, 'setting.html', find_info)
+
+
+# get client logs from database by cid
+def get_client_logs(cid):
+    logs = database.child('LOGS')
+    client_logs = []
+    for log in logs:
+        if log.child('cid') == cid:
+            client_logs.append(log)
+    return client_logs
+
+
