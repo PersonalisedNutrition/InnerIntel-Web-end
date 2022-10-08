@@ -5,9 +5,45 @@ const data = [];
 
 for(i in logs){
     var log = logs[i]
-    var obj = [log.flag,log.date,log.time,log.meal_type,log.client_food_input,log.client_food_break_out,log.cooking_method,
-    log.cooking_fats_added_numerator,log.cooking_fats_added_denominator,log.location,log.portion_size,log.portion_measurement_unit,
-    log.photograph,log.food_tags_breakout,log.client_drink_input];
+    var obj = [
+        log.flag,
+        log.date,
+        log.time,
+        log.meal_type,
+        log.client_food_input,
+        log.client_food_break_out,
+        log.cooking_method,
+        log.cooking_fats_added_numerator,
+        log.cooking_fats_added_denominator,
+        log.location,
+        log.portion_size,
+        log.portion_measurement_unit,
+        log.photograph,
+        log.food_tags_breakout,
+        log.client_drink_input,
+        log.drink_size_numerator,
+        log.drink_size_denominator,
+        log.drink_input_breakout,
+        log.drink_tags_breakout,
+        log.flatulence_incidental,
+        log.flatulence_daily,
+        log.faeces,
+        log.discomfort_incidental,
+        log.discomfort_daily,
+        log.discomfort_descriptor,
+        log.reflux_incidental,
+        log.reflux_daily,
+        log.vomiting_incidental,
+        log.vomiting_daily,
+        log.sleep_quantity,
+        log.sleep_quality,
+        log.sleep_notes,
+        log.mental_state_mood,
+        log.exercise_duration,
+        log.exercise_type,
+        log.weight,
+        log.ad_hoc
+    ];
     for(var j=0;j<obj.length;j++){
         if (obj[j] == '""'){
             obj[j] = '';
