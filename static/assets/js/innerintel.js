@@ -1,8 +1,8 @@
 const data = [
-    ['0','2022/8/23', '08:00:00', '', 'milk', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',  '', '', ''],
-    ['0','2022/8/23', '08:00:00', '', 'milk', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',  '', '', ''],
-    ['0','2022/8/23', '08:00:00', '', 'milk', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',  '', '', ''],
-    ['0','2022/8/23', '08:00:00', '', 'milk', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',  '', '', '']
+    ['0', '2022/8/23', '08:00:00', '', 'milk', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    ['0', '2022/8/23', '08:00:00', '', 'milk', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    ['0', '2022/8/23', '08:00:00', '', 'milk', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
+    ['0', '2022/8/23', '08:00:00', '', 'milk', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
 ];
 
 const container = document.getElementById('log-table');
@@ -242,57 +242,4 @@ const hot = new Handsontable(container, {
     //colHeaders: true, // enable the default col headers
     licenseKey: 'non-commercial-and-evaluation'// for non-commercial use only
 });
-//
-//export function starRenderer(
-//  instance,
-//  td,
-//  row,
-//  column,
-//  prop,
-//  value,
-//  cellProperties
-//) {
-//  Handsontable.renderers.TextRenderer.apply(this, [
-//    instance,
-//    td,
-//    row,
-//    column,
-//    prop,
-//    "★".repeat(value),
-//    cellProperties
-//  ]);
-//}
 
-//const container2 = document.getElementById('example-table');
-//const hot2 = new Handsontable(container2, {
-//    data: [
-//        [2,"*"],
-//        [1,"*"],
-//        [2,"*"],
-//        [3,"*"]
-//    ],
-//    // test columns
-//    colHeaders: [
-//        "Flag"
-//    ],
-//    columns: [
-////        "Flag"
-////        {
-////            data: 0,
-////            renderer: starRenderer,
-////            className: "star htCenter"
-////        },
-//        {
-//            data: 0,
-//            type: "numeric"
-//        },
-//        {
-//            data: 1,
-//            type: "numeric"
-//        }
-//    ],
-//    rowHeaders: true, // enable the default row headers
-//    licenseKey: 'non-commercial-and-evaluation'// for non-commercial use only
-//});
-//
-//
