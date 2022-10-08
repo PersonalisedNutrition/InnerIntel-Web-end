@@ -1,9 +1,21 @@
-const data = [
-    ['0', '2022/8/23', '08:00:00', '', 'milk', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    ['0', '2022/8/23', '08:00:00', '', 'milk', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    ['0', '2022/8/23', '08:00:00', '', 'milk', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''],
-    ['0', '2022/8/23', '08:00:00', '', 'milk', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
-];
+
+console.log('--- table ---');
+
+const data = [];
+
+for(i in logs){
+    var log = logs[i]
+    var obj = [log.flag,log.date,log.time,log.meal_type,log.client_food_input,log.client_food_break_out,log.cooking_method,
+    log.cooking_fats_added_numerator,log.cooking_fats_added_denominator,log.location,log.portion_size,log.portion_measurement_unit,
+    log.photograph,log.food_tags_breakout,log.client_drink_input];
+    for(var j=0;j<obj.length;j++){
+        if (obj[j] == '""'){
+            obj[j] = '';
+        }
+    }
+    data.push(obj);
+}
+
 
 const container = document.getElementById('log-table');
 const hot = new Handsontable(container, {
@@ -242,4 +254,57 @@ const hot = new Handsontable(container, {
     //colHeaders: true, // enable the default col headers
     licenseKey: 'non-commercial-and-evaluation'// for non-commercial use only
 });
+//
+//export function starRenderer(
+//  instance,
+//  td,
+//  row,
+//  column,
+//  prop,
+//  value,
+//  cellProperties
+//) {
+//  Handsontable.renderers.TextRenderer.apply(this, [
+//    instance,
+//    td,
+//    row,
+//    column,
+//    prop,
+//    "★".repeat(value),
+//    cellProperties
+//  ]);
+//}
 
+//const container2 = document.getElementById('example-table');
+//const hot2 = new Handsontable(container2, {
+//    data: [
+//        [2,"*"],
+//        [1,"*"],
+//        [2,"*"],
+//        [3,"*"]
+//    ],
+//    // test columns
+//    colHeaders: [
+//        "Flag"
+//    ],
+//    columns: [
+////        "Flag"
+////        {
+////            data: 0,
+////            renderer: starRenderer,
+////            className: "star htCenter"
+////        },
+//        {
+//            data: 0,
+//            type: "numeric"
+//        },
+//        {
+//            data: 1,
+//            type: "numeric"
+//        }
+//    ],
+//    rowHeaders: true, // enable the default row headers
+//    licenseKey: 'non-commercial-and-evaluation'// for non-commercial use only
+//});
+//
+//
