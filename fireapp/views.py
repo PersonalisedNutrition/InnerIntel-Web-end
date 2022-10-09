@@ -249,6 +249,30 @@ def client_data(request):
     return render(request, 'client_data.html', {'username': username, 'logs': logs, 'cid': cid})
 
 
+def update_client_data(ad_hoc,client_drink_input,client_food_break_out,client_food_input,cooking_fats_added_denominator,cooking_fats_added_numerator,
+                       cooking_method,date,discomfort_daily,discomfort_descriptor,discomfort_incidental,drink_input_breakout,drink_size_denominator,
+                       drink_size_numerator,drink_tags_breakout,exercise_duration,exercise_type,faeces,flag,flatulence_daily,flatulence_incidental,
+                       food_tags_breakout,lid,location,meal_type,mental_state_mood,photograph,portion_measurement_unit,portion_size,reflux_daily,
+                       reflux_incidental,sleep_notes,sleep_quality,sleep_quantity,time,vomiting_daily,vomiting_incidental,weight):
+    client_data = database.child('LOGS').order_by_child('lid').equal_to(lid).get()
+    if client_data.val():
+        database.child('LOGS').child(lid).update(
+            {'ad_hoc':ad_hoc,'client_drink_input':client_drink_input,'client_food_break_out':client_food_break_out,'client_food_input':client_food_input,
+             'cooking_fats_added_denominator':cooking_fats_added_denominator,'cooking_fats_added_numerator':cooking_fats_added_numerator,'cooking_method':
+             cooking_method,'date':date,'discomfort_daily':discomfort_daily,'discomfort_descriptor':discomfort_descriptor,'discomfort_incidental':discomfort_incidental,
+             'drink_input_breakout':drink_input_breakout,'drink_size_denominator':drink_size_denominator,'drink_size_numerator':drink_size_numerator,
+             'drink_tags_breakout':drink_tags_breakout,'exercise_duration':exercise_duration,'exercise_type':exercise_type,'faeces':faeces,'flag':flag,
+             'flatulence_daily':flatulence_daily,'flatulence_incidental':flatulence_incidental,'food_tags_breakout':food_tags_breakout,'location':location,
+             'meal_type':meal_type,'mental_state_mood':mental_state_mood,'photograph':photograph,'portion_measurement_unit':portion_measurement_unit,
+             'portion_size':portion_size,'reflux_daily':reflux_daily,'reflux_incidental':reflux_incidental,'sleep_notes':sleep_notes,'sleep_quality':sleep_quality,
+             'sleep_quantity':sleep_quantity,'time':time,'vomiting_daily':vomiting_daily,'vomiting_incidental':vomiting_incidental,'weight':weight}
+        )
+        return True
+    else:
+        return False
+
+
+
 # def get_logs_data(cid):
 #     logs_data = get_client_logs(cid)
 #     logs_ad_hoc = []
