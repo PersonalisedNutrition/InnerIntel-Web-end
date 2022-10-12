@@ -114,7 +114,7 @@ def get_client_data(cid):
     client_height = get_value(client_data, 'height')
     client_weight = get_value(client_data, 'weight')
     client_dob = get_value(client_data, 'dob')
-
+    client_email = get_value(client_data, 'email')
     # make the data reading code more robust with if
     client_medical_con = get_value(client_data, 'medical_conditions')
     if client_medical_con:
@@ -123,7 +123,7 @@ def get_client_data(cid):
     if client_medication:
         client_medication = client_medication.split(",")
     return client_first_name, client_last_name, client_gender, \
-           client_weight, client_height, client_medication, client_medical_con, client_dob
+           client_weight, client_height, client_medication, client_medical_con, client_dob, client_email
 
 
 def get_age(birthday):
@@ -149,7 +149,7 @@ def client(request):
     # get cid of client and fetch the data of client
     cid = request.GET.get('cid')
     client_first_name, client_last_name, client_gender, \
-    client_weight, client_height, client_medication, client_medical_con, client_dob \
+    client_weight, client_height, client_medication, client_medical_con, client_dob, _ \
         = get_client_data(cid)
     client_age = get_age(client_dob)
     username = request.get_signed_cookie('username')
@@ -158,7 +158,7 @@ def client(request):
                                                'client_weight': client_weight, 'client_height': client_height,
                                                'client_medication': client_medication,
                                                'client_medical_con': client_medical_con,
-                                               'client_age': client_age})
+                                               'client_age': client_age, 'cli': cid})
     response.set_signed_cookie("cid", cid)
     return response
 
@@ -175,7 +175,18 @@ def client_note(request):
 
 def client_profile(request):
     username = request.get_signed_cookie('username')
-    return render(request, 'client_profile.html', {'username': username})
+    cid = request.GET.get('cid')
+    client_first_name, client_last_name, client_gender, \
+    client_weight, client_height, client_medication, client_medical_con, client_dob, client_email \
+        = get_client_data(cid)
+    client_age = get_age(client_dob)
+
+    return render(request, 'client_profile.html', {'username': username, 'client_first_name': client_first_name,
+                                                   'client_last_name': client_last_name, 'client_gender': client_gender,
+                                                   'client_weight': client_weight, 'client_height': client_height,
+                                                   'client_medication': client_medication,
+                                                   'client_medical_con': client_medical_con,
+                                                   'client_age': client_age, 'cli': cid, 'client_email': client_email})
 
 
 def message(request):

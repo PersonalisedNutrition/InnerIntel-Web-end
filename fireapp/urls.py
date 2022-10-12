@@ -18,4 +18,5 @@ urlpatterns = [
 
     # urls in Index Page
     path('index/client_cid/', views.client, name='client_cid'),
+    path('client/client_cid/', views.client_profile, name='client_profile'),
 ]
