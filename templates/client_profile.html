@@ -1,224 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Responsive Admin Dashboard Template">
-        <meta name="keywords" content="admin,dashboard">
-        <meta name="author" content="skcats">
-        <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        
-        <!-- Title -->
-        <title>INNER INTEL - Beta</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Responsive Admin Dashboard Template">
+    <meta name="keywords" content="admin,dashboard">
+    <meta name="author" content="skcats">
+    <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <!-- Styles -->
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-        <link href='{% static "assets/plugins/bootstrap/css/bootstrap.min.css"%}' rel="stylesheet">
-        <link href='{% static "assets/plugins/font-awesome/css/font-awesome.min.css"%}' rel="stylesheet">
-        <link href='{% static "assets/plugins/icomoon/style.css"%}' rel="stylesheet">
-        <link href='{% static "assets/plugins/uniform/css/default.css"%}' rel="stylesheet"/>
-        <link href='{% static "assets/plugins/switchery/switchery.min.css"%}' rel="stylesheet"/>
-        <link href='{% static "assets/plugins/nvd3/nv.d3.min.css"%}' rel="stylesheet">
+    <!-- Title -->
+    <title>INNER INTEL - Beta</title>
 
-        <!-- Theme Styles -->
-        <link href='{% static "assets/css/ecaps.min.css"%}' rel="stylesheet">
-        <link href='{% static "assets/css/custom.css"%}' rel="stylesheet">
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link href='{% static "assets/plugins/bootstrap/css/bootstrap.min.css" %}' rel="stylesheet">
+    <link href='{% static "assets/plugins/font-awesome/css/font-awesome.min.css" %}' rel="stylesheet">
+    <link href='{% static "assets/plugins/icomoon/style.css" %}' rel="stylesheet">
+    <link href='{% static "assets/plugins/uniform/css/default.css" %}' rel="stylesheet"/>
+    <link href='{% static "assets/plugins/switchery/switchery.min.css" %}' rel="stylesheet"/>
+    <link href='{% static "assets/plugins/nvd3/nv.d3.min.css" %}' rel="stylesheet">
 
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
+    <!-- Theme Styles -->
+    <link href='{% static "assets/css/ecaps.min.css" %}' rel="stylesheet">
+    <link href='{% static "assets/css/custom.css" %}' rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
 
 
-        <![endif]-->
-    </head>
+    <![endif]-->
+</head>
 <!--     class="page-sidebar-collapsed page-sidebar-fixed"-->
-    <body>
+<body>
 
-        <!-- Page Container -->
-        <div class="page-container">
-            <!-- Page Sidebar -->
-            <div class="page-sidebar">
-                <a class="logo-box" href="{% url 'index' %}">
-                    <span>Inner Intel</span>
-                    <i class="icon-radio_button_unchecked" id="fixed-sidebar-toggle-button"></i>
-                    <i class="icon-close" id="sidebar-toggle-button-close"></i>
-                </a>
-                <br><br>
-                <div class="panel-body user-profile-panel">
-                    <img src='{% static "assets/images/profile.png"%}' class="user-profile-image img-circle" alt="">
-                    <h4 class="text-center m-t-lg">{{ username}}</h4>
-                    <hr>
-                </div>
-                <div class="page-sidebar-inner">
-                    <div class="page-sidebar-menu">
-                        <ul class="accordion-menu">
-                            <li>
-                                <a href="{% url 'index' %}">
-                                    <i class="menu-icon icon-home4"></i><span>Home Page</span>
-                                </a>
+<!-- Page Container -->
+<div class="page-container">
+    <!-- Page Sidebar -->
+    <div class="page-sidebar">
+        <a class="logo-box" href="{% url 'index' %}">
+            <span>Inner Intel</span>
+            <i class="icon-radio_button_unchecked" id="fixed-sidebar-toggle-button"></i>
+            <i class="icon-close" id="sidebar-toggle-button-close"></i>
+        </a>
+        <br><br>
+        <div class="panel-body user-profile-panel">
+            <img src='{% static "assets/images/profile.png" %}' class="user-profile-image img-circle" alt="">
+            <h4 class="text-center m-t-lg">{{ username }}</h4>
+            <hr>
+        </div>
+        <div class="page-sidebar-inner">
+            <div class="page-sidebar-menu">
+                <ul class="accordion-menu">
+                    <li>
+                        <a href="{% url 'index' %}">
+                            <i class="menu-icon icon-home4"></i><span>Home Page</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'setting' %}">
+                            <i class="menu-icon icon-cog"></i><span>Setting</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div><!-- /Page Sidebar -->
+
+    <!-- Page Content -->
+    <div class="page-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="search-form">
+                <form action="#" method="GET">
+                    <div class="input-group">
+                        <input type="text" name="search" class="form-control search-input"
+                               placeholder="Type something...">
+                        <span class="input-group-btn">
+                                    <button class="btn btn-default" id="close-search" type="button"><i
+                                            class="icon-close"></i></button>
+                                </span>
+                    </div>
+                </form>
+            </div>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <div class="logo-sm">
+                            <a href="javascript:void(0)" id="sidebar-toggle-button"><i class="fa fa-bars"></i></a>
+                            <a class="logo-box" href="{% url 'index' %}"><span>Inner Intel</span></a>
+                        </div>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <i class="fa fa-angle-down"></i>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="javascript:void(0)" id="collapsed-sidebar-toggle-button"><i
+                                    class="fa fa-bars"></i></a></li>
+                            <li><a href="javascript:void(0)" id="toggle-fullscreen"><i class="fa fa-expand"></i></a>
                             </li>
-                            <li>
-                                <a href="{% url 'setting' %}">
-                                    <i class="menu-icon icon-cog"></i><span>Setting</span>
-                                </a>
+                            <li><a href="javascript:void(0)" id="search-button"><i class="fa fa-search"></i></a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown user-dropdown">
+                                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"
+                                   role="button" aria-haspopup="true" aria-expanded="false"><i
+                                        class="fa fa-user-circle"></i></a>
+                                <ul class="dropdown-menu">
+
+                                    <li><a href="{% url 'message' %}"><span
+                                            class="badge pull-right badge-danger">42</span>Messages</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="{% url 'setting' %}">Account Settings</a></li>
+                                    <li><a href="{% url 'login' %}">Log Out</a></li>
+                                </ul>
                             </li>
                         </ul>
-                    </div>
-                </div>
-            </div><!-- /Page Sidebar -->
-
-            <!-- Page Content -->
-            <div class="page-content">
-                <!-- Page Header -->
-                <div class="page-header">
-                    <div class="search-form">
-                        <form action="#" method="GET">
-                            <div class="input-group">
-                                <input type="text" name="search" class="form-control search-input" placeholder="Type something...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" id="close-search" type="button"><i class="icon-close"></i></button>
-                                </span>
-                            </div>
-                        </form>
-                    </div>
-                    <nav class="navbar navbar-default">
-                        <div class="container-fluid">
-                            <!-- Brand and toggle get grouped for better mobile display -->
-                            <div class="navbar-header">
-                                <div class="logo-sm">
-                                    <a href="javascript:void(0)" id="sidebar-toggle-button"><i class="fa fa-bars"></i></a>
-                                    <a class="logo-box" href="{% url 'index' %}"><span>Inner Intel</span></a>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div><!-- /Page Header -->
+        <!-- Page Inner -->
+        <div class="page-inner">
+            <div class="page-title">
+                <h3 class="breadcrumb-header">Full Profile</h3>
+            </div>
+            <div id="main-wrapper">
+                <div class="col-lg-12">
+                    <div class="panel panel-white">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <img src='{% static "assets/images/client01.png" %}' class="user-profile-image"
+                                         alt="">
                                 </div>
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                    <i class="fa fa-angle-down"></i>
-                                </button>
-                            </div>
+                                <div class="col-lg-6">
+                                    <h3>{{ client_first_name }} {{ client_last_name }}</h3>
+                                    <p>{{ client_age }}</p>
+                                    <p>{{ client_email }}</p>
+                                </div>
+                                <div class="col-lg-2">
+                                    <!--                                            <span class="label label-danger">High</span>-->
+                                    <h4>Priority</h4>
+                                    <div class="btn-group">
 
-                            <!-- Collect the nav links, forms, and other content for toggling -->
+                                        <button type="button" class="btn btn-danger dropdown-toggle at"
+                                                data-toggle="dropdown"
+                                                aria-expanded="false">High
+                                        </button>
 
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav">
-                                    <li><a href="javascript:void(0)" id="collapsed-sidebar-toggle-button"><i class="fa fa-bars"></i></a></li>
-                                    <li><a href="javascript:void(0)" id="toggle-fullscreen"><i class="fa fa-expand"></i></a></li>
-                                    <li><a href="javascript:void(0)" id="search-button"><i class="fa fa-search"></i></a></li>
-                                </ul>
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li class="dropdown user-dropdown">
-                                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle"></i></a>
-                                        <ul class="dropdown-menu">
+{#                                        <button type="button"#}
+                                        {#                                                class="btn btn-danger dropdown-toggle"#}
+                                        {#                                                data-toggle="dropdown"#}
+                                        {#                                                aria-expanded="false">#}
+                                        {#                                            <span class="caret"></span>#}
+                                        {#                                            <span class="sr-only">Toggle Dropdown</span>#}
+                                        {#                                        </button>#}
 
-                                            <li><a href="{% url 'message' %}"><span class="badge pull-right badge-danger">42</span>Messages</a></li>
-                                            <li role="separator" class="divider"></li>
-                                            <li><a href="{% url 'setting' %}">Account Settings</a></li>
-                                            <li><a href="{% url 'login' %}">Log Out</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div><!-- /.navbar-collapse -->
-                        </div><!-- /.container-fluid -->
-                    </nav>
-                </div><!-- /Page Header -->
-                <!-- Page Inner -->
-                <div class="page-inner">
-                    <div class="page-title">
-                        <h3 class="breadcrumb-header">Full Profile</h3>
-                    </div>
-                    <div id="main-wrapper">
-                        <div class="col-lg-12">
-                            <div class="panel panel-white">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-lg-3">
-                                            <img src='{% static "assets/images/client01.png"%}' class="user-profile-image" alt="">
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <h3>Ric Curnow</h3>
-                                            <p>More Details</p>
-                                            <p>u12345678@anu.edu.au</p>
-                                        </div>
-                                        <div class="col-lg-2">
-<!--                                            <span class="label label-danger">High</span>-->
-                                            <h4>Priority</h4>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-danger">High</button>
-                                                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                    <span class="caret"></span>
-                                                    <span class="sr-only">Toggle Dropdown</span>
-                                                </button>
-                                                <ul class="dropdown-menu" role="menu">
-                                                    <li><a href="#">Low</a></li>
-                                                    <li><a href="#">Medium</a></li>
-                                                    <li><a href="#">High</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="alert alert-default col-lg-4" role="alert">
-                                            <h6>Gender</h6>
-                                            Male
-                                        </div>
-                                        <div class="alert alert-default col-lg-4" role="alert">
-                                            <h6>Height</h6>
-                                            185cm
-                                        </div>
-                                        <div class="alert alert-default col-lg-4" role="alert">
-                                            <h6>Weight</h6>
-                                            90kg
-                                        </div>
-                                    </div>
-                                    <div class="panel-body">
-                                        <h4>Comment</h4>
-                                        <input type="text" class="form-control" id="input-Default" placeholder="This patient does not like fruit.">
-                                    </div>
-                                    <hr>
-                                    <div class="panel-body">
-                                        <h4>Medical History</h4>
-                                        <ul>
-                                            <li>High blood pressure</li>
-                                            <li>Diabetes</li>
-                                        </ul>
-                                    </div>
-                                    <div class="panel-body">
-                                        <h4>Disease</h4>
-                                        <ul>
-                                            <li>glaucoma</li>
-                                            <li>ADHD</li>
+                                        <ul class="dropdown-menu ct" role="menu">
+                                            <li><a href="#">Low</a></li>
+                                            <li><a href="#">Medium</a></li>
+                                            <li><a href="#">High</a></li>
                                         </ul>
                                     </div>
                                 </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="alert alert-default col-lg-4" role="alert">
+                                    <h6>Gender</h6>
+                                    {{ client_gender }}
+                                </div>
+                                <div class="alert alert-default col-lg-4" role="alert">
+                                    <h6>Height</h6>
+                                    {{ client_height }}
+                                </div>
+                                <div class="alert alert-default col-lg-4" role="alert">
+                                    <h6>Weight</h6>
+                                    {{ client_weight }}
+                                </div>
+                            </div>
+                            {#                            <div class="panel-body">#}
+                            {#                                <h4>Comment</h4>#}
+                            {#                                <input type="text" class="form-control" id="input-Default"#}
+                            {#                                       placeholder="This patient does not like fruit.">#}
+                            {#                            </div>#}
+                            <hr>
+                            <div class="panel-body">
+                                <h4>Medical History</h4>
+                                <ul>
+                                    {% for medication in client_medication %}
+                                        <li>{{ medication }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="panel-body">
+                                <h4>Disease</h4>
+                                <ul>
+                                    {% for disease in client_medical_con %}
+                                        <li>{{ disease }}</li>
+                                    {% endfor %}
+                                </ul>
                             </div>
                         </div>
+                    </div>
+                </div>
 
 
-                    </div><!-- Main Wrapper -->
-                </div><!-- /Page Inner -->
-            </div><!-- /Page Content -->
-        </div><!-- /Page Container -->
+            </div><!-- Main Wrapper -->
+        </div><!-- /Page Inner -->
+    </div><!-- /Page Content -->
+</div><!-- /Page Container -->
 
 
-        <!-- Javascripts -->
-        <script src='{% static "assets/js/pages/dashboard.js"%}'></script>
-        <script src='{% static "assets/plugins/jquery/jquery-3.1.0.min.js"%}'></script>
-        <script src='{% static "assets/plugins/bootstrap/js/bootstrap.min.js"%}'></script>
-        <script src='{% static "assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"%}'></script>
-        <script src='{% static "assets/plugins/uniform/js/jquery.uniform.standalone.js"%}'></script>
-        <script src='{% static "assets/plugins/switchery/switchery.min.js"%}'></script>
-        <script src='{% static "assets/plugins/chartjs/chart.min.js"%}'></script>
-        <script src='{% static "assets/plugins/d3/d3.min.js"%}'></script>
-        <script src='{% static "assets/plugins/nvd3/nv.d3.min.js"%}'></script>
-        <script src='{% static "assets/plugins/flot/jquery.flot.min.js"%}'></script>
-        <script src='{% static "assets/plugins/flot/jquery.flot.time.min.js"%}'></script>
-        <script src='{% static "assets/plugins/flot/jquery.flot.symbol.min.js"%}'></script>
-        <script src='{% static "assets/plugins/flot/jquery.flot.resize.min.js"%}'></script>
-        <script src='{% static "assets/plugins/flot/jquery.flot.tooltip.min.js"%}'></script>
-        <script src='{% static "assets/plugins/flot/jquery.flot.pie.min.js"%}'></script>
-        <script src='{% static "assets/js/ecaps.min.js"%}'></script>
-        <script src="{% static "assets/js/pages/chart.js"%}"></script>
+<!-- Javascripts -->
+<script src='{% static "assets/js/pages/dashboard.js" %}'></script>
+<script src='{% static "assets/plugins/jquery/jquery-3.1.0.min.js" %}'></script>
+<script src='{% static "assets/plugins/bootstrap/js/bootstrap.min.js" %}'></script>
+<script src='{% static "assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" %}'></script>
+<script src='{% static "assets/plugins/uniform/js/jquery.uniform.standalone.js" %}'></script>
+<script src='{% static "assets/plugins/switchery/switchery.min.js" %}'></script>
+<script src='{% static "assets/plugins/chartjs/chart.min.js" %}'></script>
+<script src='{% static "assets/plugins/d3/d3.min.js" %}'></script>
+<script src='{% static "assets/plugins/nvd3/nv.d3.min.js" %}'></script>
+<script src='{% static "assets/plugins/flot/jquery.flot.min.js" %}'></script>
+<script src='{% static "assets/plugins/flot/jquery.flot.time.min.js" %}'></script>
+<script src='{% static "assets/plugins/flot/jquery.flot.symbol.min.js" %}'></script>
+<script src='{% static "assets/plugins/flot/jquery.flot.resize.min.js" %}'></script>
+<script src='{% static "assets/plugins/flot/jquery.flot.tooltip.min.js" %}'></script>
+<script src='{% static "assets/plugins/flot/jquery.flot.pie.min.js" %}'></script>
+<script src='{% static "assets/js/ecaps.min.js" %}'></script>
+<script src="{% static "assets/js/pages/chart.js" %}"></script>
 
 
-    </body>
+</body>
 </html>
