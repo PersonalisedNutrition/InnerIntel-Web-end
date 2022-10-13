@@ -2,10 +2,35 @@
 console.log('--- table ---');
 
 const data = [];
+var changes_list = [];
+
+function updateLog() {
+    console.log("+++++ update logs +++++");
+    console.log("+++++ changes_list.length: "+changes_list.length);
+
+    var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
+    httpRequest.open('POST', '', true); //第二步：打开连接
+    httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+    console.log(JSON.stringify(changes_list));
+    httpRequest.send('changes_list='+JSON.stringify(changes_list));//发送请求 将情头体写在send中
+    /**
+     * 获取数据后的处理程序
+     */
+    httpRequest.onreadystatechange = function () {//请求后的回调接口，可将请求成功后要执行的程序写在其中
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {//验证请求是否发送成功
+//            var json = httpRequest.responseText;//获取到服务端返回的数据
+            console.log("httpRequest.status == 200");
+            changes_list = [];
+//            document.getElementById("msg").innerHTML = "Update success!";
+            alert("Update success");
+        }
+    };
+};
 
 for(i in logs){
     var log = logs[i]
     var obj = [
+        log.lid,
         log.flag,
         log.date,
         log.time,
@@ -55,9 +80,74 @@ for(i in logs){
 
 const container = document.getElementById('log-table');
 const hot = new Handsontable(container, {
+    afterChange: function(changes, source) {
+            if(changes != null) {
+                var row_index = changes[0][0];
+                var col_index = changes[0][1];
+                var rowdata = hot.getDataAtRow(row_index);
+                console.info("update row_index: "+row_index);
+                console.info("update col_index: "+col_index);
+                console.info("update row: "+hot.getDataAtRow(row_index));
+                const log = {
+                    'lid':rowdata[0],
+                    'flag':rowdata[1],
+                    'date':rowdata[2],
+                    'time':rowdata[3],
+                    'meal_type':rowdata[4],
+                    'client_food_input':rowdata[5],
+                    'client_food_break_out':rowdata[6],
+                    'cooking_method':rowdata[7],
+                    'cooking_fats_added_numerator':rowdata[8],
+                    'cooking_fats_added_denominator':rowdata[9],
+                    'location':rowdata[10],
+                    'portion_size':rowdata[11],
+                    'portion_measurement_unit':rowdata[12],
+                    'photograph':rowdata[13],
+                    'food_tags_breakout':rowdata[14],
+                    'client_drink_input':rowdata[15],
+                    'drink_size_numerator':rowdata[16],
+                    'drink_size_denominator':rowdata[17],
+                    'drink_input_breakout':rowdata[18],
+                    'drink_tags_breakout':rowdata[19],
+                    'flatulence_incidental':rowdata[20],
+                    'flatulence_daily':rowdata[21],
+                    'faeces':rowdata[22],
+                    'discomfort_incidental':rowdata[23],
+                    'discomfort_daily':rowdata[24],
+                    'discomfort_descriptor':rowdata[25],
+                    'reflux_incidental':rowdata[26],
+                    'reflux_daily':rowdata[27],
+                    'vomiting_incidental':rowdata[28],
+                    'vomiting_daily':rowdata[29],
+                    'sleep_quantity':rowdata[30],
+                    'sleep_quality':rowdata[31],
+                    'sleep_notes':rowdata[32],
+                    'mental_state_mood':rowdata[33],
+                    'exercise_duration':rowdata[34],
+                    'exercise_type':rowdata[35],
+                    'weight':rowdata[36],
+                    'ad_hoc':rowdata[37]
+                };
+                //对同一行的修改只保留一次
+                var j=0;
+                for(;j<changes_list.length;j++){
+                    if(changes_list[j].lid == log.lid){
+                        changes_list[j] = log;
+                        break;
+                    }
+                }
+                if(j == changes_list.length){
+                    changes_list.push(log);
+                }
+
+
+
+            }
+        },
     data: data,
     // 37 columns
     colHeaders: [
+        "Log id",
         "Flag",
         "Date",
         "Time",
@@ -97,250 +187,168 @@ const hot = new Handsontable(container, {
         "Ad hoc"
     ],
     columns: [
-//        "Flag"
+//        "Log id"
         {
             data: 0,
-            type: "text"
+            type: "numeric",
+            readOnly: true
+        },
+//        "Flag"
+        {
+            data: 1,
+            type: "numeric"
         },
 //        "Date"
         {
-            data: 1,
+            data: 2,
             type: "date",
             correctFormat: true
         },
 //        "Time"
         {
-            data: 2,
+            data: 3,
             type: "time",
             correctFormat: true
         },
-//        "Meal type"
-        {
-            data: 3,
-            type: "text"
-        },
-//        "Food inputs (from client)"
         {
             data: 4,
             type: "text"
         },
-//        "Food inputs (breakout)"
         {
             data: 5,
             type: "text"
         },
-//        "Cooking method"
         {
             data: 6,
             type: "text"
         },
-//        "Cooking fats added (numerator)"
         {
             data: 7,
             type: "text"
         },
-//        "Cooking fats added (denominator)"
         {
             data: 8,
             type: "text"
         },
-//        "Location"
         {
             data: 9,
             type: "text"
         },
-//        "Portion size"
         {
             data: 10,
             type: "text"
         },
-//        "Portion measurement unit"
         {
             data: 11,
             type: "text"
         },
-//        "Photograph"
         {
             data: 12,
             type: "text"
         },
-//        "Food Tags (breakout)"
         {
             data: 13,
             type: "text"
         },
-//        "Drink inputs (from client)"
         {
             data: 14,
             type: "text"
         },
-//        "Drink size (numerator)"
         {
             data: 15,
             type: "text"
         },
-//        "Drink size (denominator)"
         {
             data: 16,
             type: "text"
         },
-//        "Drink inputs (breakout)"
         {
             data: 17,
             type: "text"
         },
-//        "Drink Tags (breakout)"
         {
             data: 18,
             type: "text"
         },
-//        "Flatulence (incidental)"
         {
             data: 19,
             type: "text"
         },
-//        "Flatulence (daily)"
         {
             data: 20,
             type: "text"
         },
-//        "Faeces"
         {
             data: 21,
             type: "text"
         },
-//        "Discomfort (incidental)"
         {
             data: 22,
             type: "text"
         },
-//        "Discomfort (daily)"
         {
             data: 23,
             type: "text"
         },
-//        "Discomfort descriptor"
         {
             data: 24,
             type: "text"
         },
-//        "Reflux (incidental)"
         {
             data: 25,
             type: "text"
         },
-//        "Reflux (daily)"
         {
             data: 26,
             type: "text"
         },
-//        "Vomiting (incidental)"
         {
             data: 27,
             type: "text"
         },
-//        "Vomiting (daily)"
         {
             data: 28,
             type: "text"
         },
-//        "Sleep quantity"
         {
             data: 29,
             type: "text"
         },
-//        "Sleep quality"
         {
             data: 30,
             type: "text"
         },
-//        "Sleep notes"
         {
             data: 31,
             type: "text"
         },
-//        "Mental state (mood)"
         {
             data: 32,
             type: "text"
         },
-//        "Exercise (duration)"
         {
             data: 33,
             type: "text"
         },
-//        "Exercise (type)"
         {
             data: 34,
             type: "text"
         },
-//        "Weight"
         {
             data: 35,
             type: "numeric"
         },
-//        "Ad hoc"
         {
             data: 36,
+            type: "text"
+        },
+//        "Ad hoc"
+        {
+            data: 37,
             type: "text"
         }
 
     ],
-    rowHeaders: true, // enable the default row headers
-    //colHeaders: true, // enable the default col headers
     licenseKey: 'non-commercial-and-evaluation'// for non-commercial use only
 });
-//
-//export function starRenderer(
-//  instance,
-//  td,
-//  row,
-//  column,
-//  prop,
-//  value,
-//  cellProperties
-//) {
-//  Handsontable.renderers.TextRenderer.apply(this, [
-//    instance,
-//    td,
-//    row,
-//    column,
-//    prop,
-//    "★".repeat(value),
-//    cellProperties
-//  ]);
-//}
 
-//const container2 = document.getElementById('example-table');
-//const hot2 = new Handsontable(container2, {
-//    data: [
-//        [2,"*"],
-//        [1,"*"],
-//        [2,"*"],
-//        [3,"*"]
-//    ],
-//    // test columns
-//    colHeaders: [
-//        "Flag"
-//    ],
-//    columns: [
-////        "Flag"
-////        {
-////            data: 0,
-////            renderer: starRenderer,
-////            className: "star htCenter"
-////        },
-//        {
-//            data: 0,
-//            type: "numeric"
-//        },
-//        {
-//            data: 1,
-//            type: "numeric"
-//        }
-//    ],
-//    rowHeaders: true, // enable the default row headers
-//    licenseKey: 'non-commercial-and-evaluation'// for non-commercial use only
-//});
-//
-//

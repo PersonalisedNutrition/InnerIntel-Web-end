@@ -134,18 +134,24 @@
                             <h3 class="breadcrumb-header">Client : Ric Curnow </h3>
                         </div>
                         <div class="pull-right">
-                            <button type="button" class="btn btn-default">Save Modification</button>
+<!--                            <form class="form-horizontal" action="{% url 'client_data' %}" method="post">-->
+<!--                                <input type="firstname" class="form-control" value="{{ test_in }}"-->
+<!--                                               name="test_in">-->
+                                <button type="button" class="btn btn-default" onclick="updateLog()">Save Modification</button>
+                                <br><br>
+<!--                                <input type="submit" class="btn btn-success"-->
+<!--                                               style="margin-top:10px;margin-bottom:-14px;" value="Save Modification">-->
+                                <span style="color:orange;" id="msg"></span>
+<!--                            </form>-->
                         </div>
                     </div>
                     <div id="main-wrapper">
-                        <!-- Colum One -->
-
-                        <!-- Colum Two -->
                         <div class="col-lg-12">
                             <div class="panel panel-white" style="height: 80vh;overflow:auto;">
                                 <div class="panel-body">
                                     <script type="text/javascript">
                                         var logs = {{ logs|safe }};
+                                        var url =
                                         console.log('--- reading data ---');
                                         console.log(logs);
                                     </script>
