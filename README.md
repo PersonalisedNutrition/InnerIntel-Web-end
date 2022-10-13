@@ -1,6 +1,6 @@
 **Inner Intel (Web)**
 
-[![](https://img.shields.io/badge/InnerIntel_Web-V1.0.0-blue.svg)]() [![](https://img.shields.io/badge/InnerIntel_Web-Issues-red.svg)](https://docs.google.com/spreadsheets/d/1npZpFK3Xic6fdqqMUoxf1sFYhxUc4z0dh4f2Bi-TVUE/edit?usp=sharing) [![](https://img.shields.io/badge/Landing_Page-URL-green.svg)](https://personalisednutrition.github.io) 
+[![](https://img.shields.io/badge/InnerIntel_Web-V1.0.0-blue.svg)]()  [![](https://img.shields.io/badge/Landing_Page-URL-green.svg)](https://personalisednutrition.github.io) 
 
 ---
 
@@ -50,6 +50,8 @@ After understanding the needs of nutritionists, the team decided to continue to 
 
 
 #### 05_Development Plan
+
+> If the Gantt chart doesn't display, please flash the page.
 
 ```mermaid
  gantt 
