@@ -156,8 +156,8 @@ After understanding the needs of nutritionists, the team decided to continue to 
 | ---------------------------------------- | ------------------------------------------------------------ |
 | Interface description                    | Users send their user email and password via the form for login verification. |
 | Interface type                           | POST                                                         |
-| Key_1                                    | email（Transfer of user login email）                        |
-| Key_2                                    | pwd （Transfer of user login password）                      |
+| Key_1                                    | email(Transfer of user login email)                        |
+| Key_2                                    | pwd (Transfer of user login password)                      |
 | Login Success Response                   | index.html Page                                              |
 | User email password match error response | login.html   (error_msg = 'Wrong email or password')         |
 
@@ -165,11 +165,21 @@ After understanding the needs of nutritionists, the team decided to continue to 
 
 | Interface path        | inner/index/client_cid/                                      |
 | --------------------- | ------------------------------------------------------------ |
-| Interface description | When clicking on the user's avatar ，send uid of the current user to client page。 |
+| Interface description | When clicking on the user's avatar ，send uid of the current user to client page. |
 | Interface type        | GET                                                          |
-| Key                   | cid（send id）                                               |
+| Key                   | cid (send id)                                               |
 | Success Response      | client.html Page                                             |
-| error response        | client.html Page（No user information displayed）            |
+| error response        | client.html Page(No user information displayed)           |
+
+3. client data page
+
+| Interface path        | inner/client/data/                                      |
+| --------------------- | ------------------------------------------------------------ |
+| Interface description | When clicking on the button "Save Modification", update "LOGS" in firebase. |
+| Interface type        | POST                                                          |
+| Key                   | changes_list                                            |
+| Success Response      | client_data.html Page (With an alert"Update success")                                           |
+| error response        | client_data.html Page (Modification not saved)            |
 
 ---
 
