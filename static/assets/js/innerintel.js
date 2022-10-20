@@ -20,8 +20,10 @@ function updateLog() {
         if (httpRequest.readyState == 4 && httpRequest.status == 200) {
             console.log("httpRequest.status == 200");
             changes_list = [];
-            alert("Update success");
+            alert("Update success!");
         }
+        else
+            alert("Update failed, please try again!");
     };
 };
 
