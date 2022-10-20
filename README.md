@@ -178,8 +178,8 @@ After understanding the needs of nutritionists, the team decided to continue to 
 | Interface description | When clicking on the button "Save Modification", update "LOGS" in firebase. |
 | Interface type        | POST                                                          |
 | Key                   | changes_list                                            |
-| Success Response      | client_data.html Page (With an alert"Update success")                                           |
-| error response        | client_data.html Page (Modification not saved)            |
+| Success Response      | client_data.html Page (With an alert "Update success!")                                           |
+| error response        | client_data.html Page (With an alert "Update failed, please try again!")            |
 
 ---
 
