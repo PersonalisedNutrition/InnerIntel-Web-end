@@ -8,20 +8,18 @@ function updateLog() {
     console.log("+++++ update logs +++++");
     console.log("+++++ changes_list.length: "+changes_list.length);
 
-    var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
-    httpRequest.open('POST', '', true); //第二步：打开连接
-    httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.open('POST', '', true);
+    httpRequest.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     console.log(JSON.stringify(changes_list));
-    httpRequest.send('changes_list='+JSON.stringify(changes_list));//发送请求 将情头体写在send中
+    httpRequest.send('changes_list='+JSON.stringify(changes_list));
     /**
-     * 获取数据后的处理程序
+     * After getting the data
      */
-    httpRequest.onreadystatechange = function () {//请求后的回调接口，可将请求成功后要执行的程序写在其中
-        if (httpRequest.readyState == 4 && httpRequest.status == 200) {//验证请求是否发送成功
-//            var json = httpRequest.responseText;//获取到服务端返回的数据
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState == 4 && httpRequest.status == 200) {
             console.log("httpRequest.status == 200");
             changes_list = [];
-//            document.getElementById("msg").innerHTML = "Update success!";
             alert("Update success");
         }
     };
